@@ -1,39 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
+    <title>Skyprice</title>
   </head>
 
   <body>
     <main class="container">
-      <h1>Welcome to Tauri</h1>
 
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
+      <h2>
+        Skyprice
+      </h2>
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
+      <p>
+        Welcome to Skyprice. In order to use this app, you must enter a temporary API key.
+      </p>
+
+      <p>
+        You can create a temporary API key by going to the
+        <a id = "dev-dashboard" target = _blank href="https://developer.hypixel.net/dashboard/">
+          Hypixel Developer Dashboard</a>.
+      </p>
+
+      <form class="row" id="api-form">
+        <input id="api-input" placeholder="Enter an API key..."/>
+        <button id = "api-submit" type="submit"> Submit </button>
       </form>
-      <p id="greet-msg"></p>
+
+      <p id="greet-input"> </p>
+
+      <div class = "row"> <button id = "proceedBtn" > Proceed </button> </div>
+
     </main>
+    <script src = "main.js"> </script>
   </body>
 </html>

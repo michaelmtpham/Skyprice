@@ -1,18 +1,34 @@
 const { invoke } = window.__TAURI__.core;
 
-let greetInputEl;
-let greetMsgEl;
+let API_Key;
+let apiKeyValid = false;
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
+document.getElementById("api-form").onsubmit = async function(event) {
+  event.preventDefault();
+  API_Key = document.getElementById("api-input").value.trim();
+  try {
+    const response = await fetch(`https://api.hypixel.net/status?key=${API_Key}&uuid=7474f749-4898-4941-a50d-e6836ad4616e`);
+    const data = await response.json();
+    if (data.success) {
+      document.getElementById("greet-input").textContent = 'API key valid! You may proceed.';
+      apiKeyValid = true;
+    }
+    else {
+      document.getElementById("greet-input").textContent = 'Invalid API key. Please try again.';
+      apiKeyValid = false;
+    }
+  }
+  catch(error) {
+    document.getElementById("greet-input").textContent = 'Error occurred. Please try again.';
+    apiKeyValid = false;
+  }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
-});
+document.getElementById('proceedBtn').addEventListener('click', function() {
+  if (apiKeyValid) {
+    window.location.href = 'homePage.html';
+  }
+  else {
+    document.getElementById('greet-input').textContent = 'You cannot proceed without a valid API key!';
+  }
+})
