@@ -1,49 +1,37 @@
-const priceCalculator = document.getElementById("price-calculator");
-const priceHistory = document.getElementById("price-history");
-const npcToBazaar = document.getElementById("npc-bazaar");
-const bazaarToNPC = document.getElementById("bazaar-npc");
-const craftFlips = document.getElementById("craft-flips");
-const katFlips = document.getElementById("kat-flips");
-const bitsShopItems = document.getElementById("bits-shop-items");
-const playerSearch = document.getElementById("player-search");
+const features = ["price-calculator", "price-history", "npc-bazaar", "bazaar-npc", "craft-flips", "kat-flips", "bits-shop-items", "player-search"];
 
-priceCalculator.addEventListener("click", async event => {
-    const response = await fetch('price-calculator.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
+async function loadFile(feature) {
+    const content = document.getElementById("homeContent");
+    const response = await fetch(`${feature}.html`);
+    content.innerHTML = await response.text();
+
+    loadCSS(`${feature}.css`);
+    loadJS(`${feature}.js`);
+}
+
+function loadCSS(feature) {
+    if (document.querySelector(`link[href="${feature}"]`)) {
+        return;
+    }   
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = feature;
+    document.head.appendChild(link);
+}
+
+function loadJS(feature) {
+    if (document.querySelector(`script[src="${feature}"]`)) {
+        return;
+    }
+    const script = document.createElement("script");
+    script.src = feature;
+    script.defer = true;
+    document.body.appendChild(script);
+}
+
+features.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.addEventListener("click", () => loadFile(id))
+    }
 });
-
-priceHistory.addEventListener("click", async event => {
-    const response = await fetch('price-history.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-
-npcToBazaar.addEventListener("click", async event => {
-    const response = await fetch('npc-bazaar.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-
-bazaarToNPC.addEventListener("click", async event => {
-    const response = await fetch('bazaar-npc.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-
-craftFlips.addEventListener("click", async event => {
-    const response = await fetch('craft-flips.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-
-katFlips.addEventListener("click", async event => {
-    const response = await fetch('kat-flips.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-
-bitsShopItems.addEventListener("click", async event => {
-    const response = await fetch('bits-shop-items.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-
-playerSearch.addEventListener("click", async event => {
-    const response = await fetch('player-search.html');
-    document.querySelector("#homeContent").innerHTML = await response.text();
-});
-

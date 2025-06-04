@@ -12,6 +12,7 @@ document.getElementById("api-form").onsubmit = async function(event) {
     if (data.success) {
       document.getElementById("greet-input").textContent = 'API key valid! You may proceed.';
       api_Key_Valid = true;
+      localStorage.setItem('APIKey', API_Key);
     }
     else {
       document.getElementById("greet-input").textContent = 'Invalid API key. Please try again.';
