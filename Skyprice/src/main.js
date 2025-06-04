@@ -1,7 +1,7 @@
 const { invoke } = window.__TAURI__.core;
 
 let API_Key;
-let apiKeyValid = false;
+let api_Key_Valid = false;
 
 document.getElementById("api-form").onsubmit = async function(event) {
   event.preventDefault();
@@ -11,21 +11,21 @@ document.getElementById("api-form").onsubmit = async function(event) {
     const data = await response.json();
     if (data.success) {
       document.getElementById("greet-input").textContent = 'API key valid! You may proceed.';
-      apiKeyValid = true;
+      api_Key_Valid = true;
     }
     else {
       document.getElementById("greet-input").textContent = 'Invalid API key. Please try again.';
-      apiKeyValid = false;
+      api_Key_Valid = false;
     }
   }
   catch(error) {
     document.getElementById("greet-input").textContent = 'Error occurred. Please try again.';
-    apiKeyValid = false;
+    api_Key_Valid = false;
   }
 }
 
 document.getElementById('proceedBtn').addEventListener('click', function() {
-  if (apiKeyValid) {
+  if (api_Key_Valid) {
     window.location.href = 'homePage.html';
   }
   else {
