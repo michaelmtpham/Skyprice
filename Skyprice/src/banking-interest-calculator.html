@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="banking-interest-calculator.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banking Interest Calculator</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="sidebar">
+    <div class= "feature-box" id= "banking-interest-calculator" > Banking Interest Calculator </div>
+    <div class= "feature-box" id= "price-calculator" > Price Calculator </div>
+    <div class= "feature-box" id= "price-history" > Price History </div>
+    <div class= "feature-box" id= "npc-bazaar" > Optimal NPC to Bazaar Flips </div>
+    <div class= "feature-box" id= "bazaar-npc" > Optimal Bazaar to NPC Flips </div>
+    <div class= "feature-box" id= "craft-flips" > Optimal Craft Flips </div>
+    <div class= "feature-box" id= "kat-flips" > Optimal Kat Flips </div>
+    <div class= "feature-box" id= "bits-shop-items" > Optimal Bits Shop Items </div>
+    <div class= "feature-box" id= "player-search" > Player Search </div>
+  </div>
+
+  <div class="content" id="homeContent">
+    <div class = "banking-interest-calculator">
+      <div class = "section">
+        <label for = "balance">Enter your bank account balance:</label>
+        <input id = "balance" type = "number" placeholder="Enter a coin amount...">
+      </div>
+
+      <div class = "section">
+        <p>Select your bank tier:</p>
+        <div class = "button-grid">
+          <button class = "bank-tier">Starter</button>
+          <button class = "bank-tier">Gold</button>
+          <button class = "bank-tier">Deluxe</button>
+          <button class = "bank-tier">Super Deluxe</button>
+          <button class = "bank-tier">Premier</button>
+          <button class = "bank-tier">Luxurious</button>
+          <button class = "bank-tier">Palatial</button>
+        </div>
+
+        <div class = "section">
+          <p>Select your Museum Milestone:</p>
+          <label class = "museum-milestone-button" for = "museum-milestone">Milestone (0-30)</label>
+          <input id = "museum-milestone" type = "number" min = "0" max = "30">
+        </div>
+
+        <div class = "section">
+          <p> (Optional) Enter the balance you would like to reach.</p>
+          <label class = "balance-goal-button" for = "balance-goal">Balance Goal:</label>
+          <input id = "balance-goal" type = "number">
+        </div>
+
+        <button id ="calculate">Calculate</button>
+
+        <div class = "result">
+          <p><strong> </strong></p>
+          <p><strong> </strong></p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src = "banking-interest-calculator.js"> </script>
+</body>
+
+</html>

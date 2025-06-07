@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #f2f2f2;
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 2px solid #ccc;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.feature-box {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.feature-box:hover {
+    background-color: #e0e0e0;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #ffffff;
+    overflow-y: auto;
+}
+
+.banking-interest-calculator {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section label, .section p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #222;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    transition: border-color 0.2s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.bank-tier {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.bank-tier:hover {
+    background-color: #2563eb;
+}
+
+.museum-milestone-button, .balance-goal-button {
+    margin-top: 0.5rem;
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    background-color: #34d399;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+#calculate {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background-color: #facc15;
+    color: #1f2937;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+}
+
+#calculate:hover {
+    background-color: #eab308
+}
+
+.result {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #1e3a8a;
+}
+
+.result p {
+    margin-bottom: 0.5rem;
+}
+
+.result strong {
+    text-decoration: underline;
+    font-weight: bold;
+}

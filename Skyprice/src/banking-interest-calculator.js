@@ -4,3 +4,6 @@ document.getElementById("banking-interest-calculator").addEventListener("click",
 document.getElementById("price-calculator").addEventListener("click", async event => {
     window.location.href = 'price-calculator.html';
 });
+
+//----------------------------------------------------------------------------------------------------------------------
+
