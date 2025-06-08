@@ -42,13 +42,31 @@ calculate.addEventListener("click", event => {
         return;
     }
     if (balanceGoalInput.value.trim() !== '') {
-        if (isNaN(balanceGoal) || balanceGoal <0) {
+        if (isNaN(balanceGoal) || balanceGoal < 0) {
             result.innerHTML = "Please enter a valid balance goal!";
             return;
         }
     }
-
-    result.innerHTML = "All entries are valid!";
+    if (selectedTier === "Deluxe" && museumMilestone < 3) {
+        result.innerHTML = "It is impossible to have a Deluxe bank account with that Museum Milestone!";
+        return;
+    }
+    if (selectedTier === "Super Deluxe" && museumMilestone < 6) {
+        result.innerHTML = "It is impossible to have a Super Deluxe bank account with that Museum Milestone!";
+        return;
+    }
+    if (selectedTier === "Premier" && museumMilestone < 10) {
+        result.innerHTML = "It is impossible to have a Premier bank account with that Museum Milestone!";
+        return;
+    }
+    if (selectedTier === "Luxurious" && museumMilestone < 14) {
+        result.innerHTML = "It is impossible to have a Luxurious bank account with that Museum Milestone!";
+        return;
+    }
+    if (selectedTier === "Palatial" && museumMilestone < 18) {
+        result.innerHTML = "It is impossible to have a Palatial bank account with that Museum Milestone!";
+        return;
+    }
 
 })
 
