@@ -47,6 +47,34 @@ calculate.addEventListener("click", event => {
             return;
         }
     }
+    if (selectedTier === "Starter" && balance > 50000000) {
+        result.innerHTML = "A Starter account cannot hold more than 50,000,000 coins!"
+        return;
+    }
+    if (selectedTier === "Gold" && balance > 100000000) {
+        result.innerHTML = "A Gold account cannot hold more than 100,000,000 coins!"
+        return;
+    }
+    if (selectedTier === "Deluxe" && balance > 250000000) {
+        result.innerHTML = "A Deluxe account cannot hold more than 250,000,000 coins!"
+        return;
+    }
+    if (selectedTier === "Super Deluxe" && balance > 500000000) {
+        result.innerHTML = "A Super Deluxe account cannot hold more than 500,000,000 coins!"
+        return;
+    }
+    if (selectedTier === "Premier" && balance > 1000000000) {
+        result.innerHTML = "A Premier account cannot hold more than 1.000,000,000 coins!"
+        return;
+    }
+    if (selectedTier === "Luxurious" && balance > 6000000000) {
+        result.innerHTML = "A Luxurious account cannot hold more than 6,000,000,000 coins!"
+        return;
+    }
+    if (selectedTier === "Palatial" && balance > 60000000000) {
+        result.innerHTML = "A Palatial account cannot hold more than 60,000,000,000 coins!"
+        return;
+    }
     if (selectedTier === "Deluxe" && museumMilestone < 3) {
         result.innerHTML = "It is impossible to have a Deluxe bank account with that Museum Milestone!";
         return;
@@ -67,6 +95,5 @@ calculate.addEventListener("click", event => {
         result.innerHTML = "It is impossible to have a Palatial bank account with that Museum Milestone!";
         return;
     }
-
 })
 
