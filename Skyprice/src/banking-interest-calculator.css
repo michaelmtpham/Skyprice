@@ -64,7 +64,7 @@ body, html {
     color: #222;
 }
 
-input[type="number"] {
+input{
     width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
@@ -75,7 +75,7 @@ input[type="number"] {
     transition: border-color 0.2s ease;
 }
 
-input[type="number"]:focus {
+input:focus {
     border-color: #3b82f6;
     outline: none;
 }
@@ -101,6 +101,12 @@ input[type="number"]:focus {
 
 .bank-tier:hover {
     background-color: #2563eb;
+}
+
+.bank-tier.selected {
+    background-color: #60a5fa;
+    color: white;
+    font-weight: bold;
 }
 
 .museum-milestone-button, .balance-goal-button {
