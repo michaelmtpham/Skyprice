@@ -1,7 +1,7 @@
-document.getElementById("banking-interest-calculator").addEventListener("click", async event => {
+document.getElementById("banking-interest-calculator").addEventListener("click", async ()=> {
     window.location.href = 'banking-interest-calculator.html';
 });
-document.getElementById("price-calculator").addEventListener("click", async event => {
+document.getElementById("price-calculator").addEventListener("click", async () => {
     window.location.href = 'price-calculator.html';
 });
 
@@ -13,6 +13,7 @@ const museumMilestoneInput = document.getElementById("museum-milestone");
 const balanceGoalInput = document.getElementById("balance-goal");
 const result = document.querySelector(".result");
 let selectedTier = null;
+let x = false;
 
 document.querySelectorAll(".bank-tier").forEach(button => {
     button.addEventListener("click", () => {
@@ -22,7 +23,7 @@ document.querySelectorAll(".bank-tier").forEach(button => {
     })
 })
 
-calculate.addEventListener("click", event => {
+calculate.addEventListener("click", () => {
     result.innerHTML = "";
 
     const balance = parseFloat(balanceInput.value);
@@ -72,9 +73,13 @@ calculate.addEventListener("click", event => {
         return;
     }
 
-    if (selectedTier === "Starter") {
-        let interest = 0;
+    if (balanceGoalInput.value.trim() !== '') {
+        x = true;
+    }
 
+    let interest = 0;
+
+    if (selectedTier === "Starter") {
         if (balance > 0) {
             let firstBracket = Math.min(balance, 10000000);
             interest += firstBracket * 0.02;
@@ -84,9 +89,188 @@ calculate.addEventListener("click", event => {
             interest += secondBracket * 0.01;
         }
         interest *= (1 + (museumMilestone * .02));
-        result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
     }
-
-
+    else if (selectedTier === "Gold") {
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 10000000);
+            interest += secondBracket * 0.01;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
+    }
+    else if (selectedTier === "Deluxe") {
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 10000000);
+            interest += secondBracket * 0.01;
+        }
+        if (balance > 20000000) {
+            let thirdBracket = Math.min(balance - 20000000, 10000000);
+            interest += thirdBracket * 0.005;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
+    }
+    else if (selectedTier === "Super Deluxe") {
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 10000000);
+            interest += secondBracket * 0.01;
+        }
+        if (balance > 20000000) {
+            let thirdBracket = Math.min(balance - 20000000, 10000000);
+            interest += thirdBracket * 0.005;
+        }
+        if (balance > 30000000) {
+            let fourthBracket = Math.min(balance - 30000000, 20000000);
+            interest += fourthBracket * 0.002;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
+    }
+    else if (selectedTier === "Premier") {
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 10000000);
+            interest += secondBracket * 0.01;
+        }
+        if (balance > 20000000) {
+            let thirdBracket = Math.min(balance - 20000000, 10000000);
+            interest += thirdBracket * 0.005;
+        }
+        if (balance > 30000000) {
+            let fourthBracket = Math.min(balance - 30000000, 20000000);
+            interest += fourthBracket * 0.002;
+        }
+        if (balance > 50000000) {
+            let fifthBracket = Math.min(balance - 50000000, 110000000);
+            interest += fifthBracket * 0.001;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
+    }
+    else if (selectedTier === "Luxurious") {
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 10000000);
+            interest += secondBracket * 0.01;
+        }
+        if (balance > 20000000) {
+            let thirdBracket = Math.min(balance - 20000000, 10000000);
+            interest += thirdBracket * 0.005;
+        }
+        if (balance > 30000000) {
+            let fourthBracket = Math.min(balance - 30000000, 20000000);
+            interest += fourthBracket * 0.002;
+        }
+        if (balance > 50000000) {
+            let fifthBracket = Math.min(balance - 50000000, 110000000);
+            interest += fifthBracket * 0.001;
+        }
+        if (balance > 160000000) {
+            let sixthBracket = Math.min(balance - 160000000, 5000000000);
+            interest += sixthBracket * 0.0001;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
+    }
+    else {
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 10000000);
+            interest += secondBracket * 0.01;
+        }
+        if (balance > 20000000) {
+            let thirdBracket = Math.min(balance - 20000000, 10000000);
+            interest += thirdBracket * 0.005;
+        }
+        if (balance > 30000000) {
+            let fourthBracket = Math.min(balance - 30000000, 20000000);
+            interest += fourthBracket * 0.002;
+        }
+        if (balance > 50000000) {
+            let fifthBracket = Math.min(balance - 50000000, 110000000);
+            interest += fifthBracket * 0.001;
+        }
+        if (balance > 160000000) {
+            let sixthBracket = Math.min(balance - 160000000, 5000000000);
+            interest += sixthBracket * 0.0001;
+        }
+        if (balance > 5160000000) {
+            let seventhBracket = Math.min(balance - 5160000000, 50000000000);
+            interest += seventhBracket * 0.00001;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        const time = ((balanceGoal - balance)/ interest) * 31;
+        if (x) {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
+            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+        }
+        else {
+            result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
+        }
+    }
 })
 
