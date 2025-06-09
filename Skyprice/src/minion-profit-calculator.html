@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="minion-profit-calculator.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minion Profit Calculator</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class= "feature-box" id= "banking-interest-calculator" > Banking Interest Calculator </div>
+        <div class= "feature-box" id= "minion-profit-calculator" > Minion Profit Calculator </div>
+        <div class= "feature-box" id= "price-calculator" > Price Calculator </div>
+        <div class= "feature-box" id= "price-history" > Price History </div>
+        <div class= "feature-box" id= "npc-bazaar" > Optimal NPC to Bazaar Flips </div>
+        <div class= "feature-box" id= "bazaar-npc" > Optimal Bazaar to NPC Flips </div>
+        <div class= "feature-box" id= "craft-flips" > Optimal Craft Flips </div>
+        <div class= "feature-box" id= "kat-flips" > Optimal Kat Flips </div>
+        <div class= "feature-box" id= "bits-shop-items" > Optimal Bits Shop Items </div>
+    </div>
+
+    <div class="content" id="homeContent">
+        <div class = "minion-profit-calculator">
+
+            <div class = "section">
+                <label for="minion-type">Minion Type: </label>
+                <input id="minion-type" list = "minions" placeholder = "Select minion type...">
+                <datalist id = "minions">
+                    <option value = "Wheat"></option> <option value = "Carrot"></option> <option value = "Potato"></option>
+                    <option value = "Pumpkin"></option> <option value = "Melon"></option> <option value = "Mushroom"></option>
+                    <option value = "Cocoa Beans"></option> <option value = "Cactus"></option> <option value = "Sugar Cane"></option>
+                    <option value = "Cow"></option> <option value = "Pig"></option> <option value = "Chicken"></option>
+                    <option value = "Sheep"></option> <option value = "Rabbit"></option> <option value = "Nether Wart"></option>
+                    <option value = "Cobblestone"></option> <option value = "Coal"></option> <option value = "Iron"></option>
+                    <option value = "Gold"></option> <option value = "Diamond"></option> <option value = "Lapis"></option>
+                    <option value = "Emerald"></option> <option value = "Redstone"></option> <option value = "Quartz"></option>
+                    <option value = "Obsidian"></option> <option value = "Glowstone"></option> <option value = "Gravel"></option>
+                    <option value = "Ice"></option> <option value = "Sand"></option> <option value = "End Stone"></option>
+                    <option value = "Mithril"></option> <option value = "Snow"></option> <option value = "Hard Stone"></option>
+                    <option value = "Mycelium"></option> <option value = "Red Sand"></option> <option value = "Zombie"></option>
+                    <option value = "Skeleton"></option> <option value = "Spider"></option> <option value = "Cave Spider"></option>
+                    <option value = "Creeper"></option> <option value = "Enderman"></option> <option value = "Ghast"></option>
+                    <option value = "Slime"></option> <option value = "Blaze"></option> <option value = "Magma Cube"></option>
+                    <option value = "Revenant"></option> <option value = "Tarantula"></option> <option value = "Voidling"></option>
+                    <option value = "Inferno"></option> <option value = "Vampire"></option> <option value = "Oak"></option>
+                    <option value = "Spruce"></option> <option value = "Birch"></option> <option value = "Dark Oak"></option>
+                    <option value = "Acacia"></option> <option value = "Jungle"></option> <option value = "Flower"></option>
+                    <option value = "Fishing"></option> <option value = "Clay"></option>
+                </datalist>
+            </div>
+
+            <div class = "section">
+                <label for = "minion-tier"> Tier (1-12): </label>
+                <input id = "minion-tier" type = "number" min = "1" max = "12" placeholder = "Enter minion tier...">
+            </div>
+
+            <div class = "section">
+                <label for = "fuel-type">Fuel Type: </label>
+                <input id = "fuel-type" list = "fuels" placeholder = "Select fuel type...">
+                <datalist id = "fuels">
+                    <option value = "Coal"></option><option value = "Block of Coal"></option><option value = "Enchanted Bread"></option>
+                    <option value = "Enchanted Coal"></option><option value = "Enchanted Charcoal"></option><option value = "Solar Panel"></option>
+                    <option value = "Enchanted Lava Bucket"></option><option value = "Magma Bucket"></option><option value = "Plasma Bucket"></option>
+                    <option value = "Everburning Flame"></option><option value = "Hamster Wheel"></option><option value = "Foul Flesh"></option>
+                    <option value = "Tasty Cheese"></option><option value = "Catalyst"></option><option value = "Hyper Catalyst"></option>
+                    <option value = "(RARE) Inferno Minion Fuel"></option><option value = "(EPIC) Inferno Minion Fuel"></option>
+                    <option value = "(LEGENDARY) Inferno Minion Fuel"></option>
+                </datalist>
+            </div>
+
+            <div class = "section">
+                <label for = "automated-shipping">(OPTIONAL) Automated Shipping: </label>
+                <input id = "automated-shipping" list = "hoppers" placeholder = "Select hopper...">
+                <datalist id = "hoppers">
+                    <option value = "Budget Hopper"></option>
+                    <option value = "Enchanted Hopper"></option>
+                </datalist>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script src = "minion-profit-calculator.js"> </script>
+</body>
+
+</html>

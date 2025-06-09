@@ -4,6 +4,9 @@ document.getElementById("banking-interest-calculator").addEventListener("click",
 document.getElementById("price-calculator").addEventListener("click", async () => {
     window.location.href = 'price-calculator.html';
 });
+document.getElementById("minion-profit-calculator").addEventListener("click", async () => {
+    window.location.href = 'minion-profit-calculator.html';
+});
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -13,7 +16,6 @@ const museumMilestoneInput = document.getElementById("museum-milestone");
 const balanceGoalInput = document.getElementById("balance-goal");
 const result = document.querySelector(".result");
 let selectedTier = null;
-let x = false;
 
 document.querySelectorAll(".bank-tier").forEach(button => {
     button.addEventListener("click", () => {
@@ -29,6 +31,7 @@ calculate.addEventListener("click", () => {
     const balance = parseFloat(balanceInput.value);
     const museumMilestone = parseInt(museumMilestoneInput.value);
     const balanceGoal = parseFloat(balanceGoalInput.value);
+    let x = false;
 
     if (isNaN(balance) || balance < 0) {
         result.innerHTML = "Please enter a valid balance!";
