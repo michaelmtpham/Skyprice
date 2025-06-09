@@ -72,5 +72,21 @@ calculate.addEventListener("click", event => {
         return;
     }
 
+    if (selectedTier === "Starter") {
+        let interest = 0;
+
+        if (balance > 0) {
+            let firstBracket = Math.min(balance, 10000000);
+            interest += firstBracket * 0.02;
+        }
+        if (balance > 10000000) {
+            let secondBracket = Math.min(balance - 10000000, 5000000);
+            interest += secondBracket * 0.01;
+        }
+        interest *= (1 + (museumMilestone * .02));
+        result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`
+    }
+
+
 })
 
