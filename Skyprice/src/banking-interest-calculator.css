@@ -49,7 +49,8 @@ body, html {
     margin: 0 auto;
     padding: 2rem;
     border-radius: 12px;
-    background-color: #f8fafc;
+    background-color: #fff9f5;
+    border: 1px solid #f4e9e3;
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
@@ -57,18 +58,22 @@ body, html {
     margin-bottom: 2rem;
 }
 
-.section label, .section p {
+.section label {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
-    display: block;
-    color: #222;
+    font-weight: 500;
+    color: #bf5700;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 input{
     width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
-    border: 2px solid #cbd5e1;
+    border: 2px solid #f3d3c3;
     border-radius: 8px;
     background-color: white;
     color: #333;
@@ -76,7 +81,7 @@ input{
 }
 
 input:focus {
-    border-color: #3b82f6;
+    border-color: #bf5700;
     outline: none;
 }
 
@@ -88,7 +93,7 @@ input:focus {
 }
 
 .bank-tier {
-    background-color: #3b82f6;
+    background-color: #bf7500;
     color: white;
     border: none;
     padding: 0.75rem;
@@ -100,11 +105,11 @@ input:focus {
 }
 
 .bank-tier:hover {
-    background-color: #2563eb;
+    background-color: #994400;
 }
 
 .bank-tier.selected {
-    background-color: #60a5fa;
+    background-color: #e86f0f;
     color: white;
     font-weight: bold;
 }
@@ -113,8 +118,8 @@ input:focus {
     margin-top: 0.5rem;
     display: inline-block;
     padding: 0.4rem 0.75rem;
-    background-color: #34d399;
-    color: white;
+    background-color: #ffc857;
+    color: #472c10;
     font-weight: 600;
     border-radius: 8px;
     font-size: 0.85rem;
@@ -125,8 +130,8 @@ input:focus {
     padding: 1rem;
     font-size: 1.05rem;
     font-weight: 600;
-    background-color: #facc15;
-    color: #1f2937;
+    background-color: #ffc857;
+    color: #472c10;
     border:none;
     border-radius: 10px;
     cursor: pointer;
@@ -135,14 +140,14 @@ input:focus {
 }
 
 #calculate:hover {
-    background-color: #eab308
+    background-color: #fbbf24;
 }
 
 .result {
     margin-top: 2rem;
     text-align: center;
     font-size: 1.15rem;
-    color: #1e3a8a;
+    color: #9a3412;
 }
 
 .result p {

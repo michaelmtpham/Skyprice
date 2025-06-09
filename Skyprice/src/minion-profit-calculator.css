@@ -43,3 +43,82 @@ body, html {
     background-color: #ffffff;
     overflow-y: auto;
 }
+
+.minion-profit-calculator {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem;
+    border:  1px solid #e9d8a6;
+    border-radius: 16px;
+    background-color: #fffdf6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #3e2f1c;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    transition: border-color 0.2s ease;
+}
+
+input:focus {
+    border-color: #facc15;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.25);
+}
+
+#calculate {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background-color: #facc15;
+    color: #3a2d00;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: scale(1.02);
+}
+
+#calculate:hover {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #1e3a8a;
+}
+
+.result p {
+    margin-bottom: 0.5rem;
+    color: #4b3b1f;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.result strong {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #3b2d14;
+}
+
