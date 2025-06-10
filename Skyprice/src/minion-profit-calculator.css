@@ -99,14 +99,23 @@ input:focus {
     transition: background-color 0.2s ease;
     margin-top: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transform: scale(1.02);
 }
 
 #calculate:hover {
-    margin-top: 2rem;
     text-align: center;
     font-size: 1.15rem;
     color: #1e3a8a;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #4b3b1f;
 }
 
 .result p {
@@ -114,11 +123,12 @@ input:focus {
     color: #4b3b1f;
     font-size: 1rem;
     line-height: 1.6;
+    text-align: center;
 }
 
 .result strong {
     text-decoration: underline;
     font-weight: bold;
     color: #3b2d14;
+    text-align: center;
 }
-
