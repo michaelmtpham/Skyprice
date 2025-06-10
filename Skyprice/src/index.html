@@ -10,27 +10,25 @@
 
   <body>
     <main class="container">
-      <h2>
-        Skyprice
-      </h2>
-      <p>
-        Welcome to Skyprice. In order to use this app, you must enter a temporary API key.
-      </p>
+      <section class = "display">
+        <h1>Skyprice</h1>
+        <p class = "subtitle">Enter a temporary Hypixel API Key to get started.</p>
 
-      <p>
-        You can create a temporary API key by going to the
-        <a id = "dev-dashboard" target = _blank href = "https://developer.hypixel.net/dashboard/">
-          Hypixel Developer Dashboard</a>.
-      </p>
+        <p class = "info">
+          You can generate an API key from the
+          <a id = "dev-dashboard" target = _blank href = "https://developer.hypixel.net/dashboard/">
+            Hypixel Developer Dashboard</a>.
+        </p>
 
-      <form class="row" id="api-form">
-        <input id="api-input" placeholder="Enter an API key..."/>
-        <button id = "api-submit" type="submit"> Submit </button>
-      </form>
+        <form class="form" id="api-form">
+          <input id="api-input" placeholder="Enter an API key..."/>
+          <button id = "api-submit" type="submit"> Submit </button>
+        </form>
 
-      <p id="greet-input"> </p>
+        <p id="greet-input" class = "feedback"> </p>
+      </section>
 
-      <div class = "row"> <button id = "proceedBtn" > Proceed </button> </div>
+      <button id = "proceedBtn" > Proceed </button>
 
     </main>
     <script src = "main.js"> </script>

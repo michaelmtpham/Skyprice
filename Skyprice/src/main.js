@@ -1,5 +1,3 @@
-const { invoke } = window.__TAURI__.core;
-
 let API_Key;
 let api_Key_Valid = false;
 

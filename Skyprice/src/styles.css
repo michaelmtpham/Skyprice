@@ -14,9 +14,40 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
+body, html {
+  height: 100%;
   margin: 0;
-  padding-top: 10vh;
+  padding: 0;
+  background-image: url('skyblockbackground.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  font-family: inherit;
+  color: inherit;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 10vh auto 0 auto;
+  padding: 3rem 2rem;
+  background-color: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
