@@ -118,9 +118,24 @@ document.getElementById("calculate").addEventListener("click", async () => {
         "Slime": [2991, 2991, 3240, 3240, 3535, 3535, 4093, 4093, 4860, 4860, 6480]
     }
     const fuelModifiers = {
-        "Coal": [1.05, 5],
-        "Enchanted Bread": [1.05, 12],
-        
+        "Coal": [1.05, 30],
+        "Block of Coal": [1.05, 300],
+        "Enchanted Bread": [1.05, 720],
+        "Enchanted Coal": [1.10, 1440],
+        "Enchanted Charcoal": [1.20, 2160],
+        "Solar Panel": [1.25, Infinity],
+        "Enchanted Lava Bucket": [1.25, Infinity],
+        "Magma Bucket": [1.35, Infinity],
+        "Plasma Bucket": [1.35, Infinity],
+        "Everburning Flame": [1.4, Infinity],
+        "Hamster Wheel": [1.5, 1440],
+        "Foul Flesh": [1.9, 300],
+        "Tasty Cheese": [2, 60],
+        "Catalyst": [3, 180],
+        "Hyper Catalyst": [4, 360],
+        "(RARE) Inferno Minion Fuel": [10, 1440],
+        "(EPIC) Inferno Minion Fuel": [15, 1440],
+        "(LEGENDARY) Inferno Minion Fuel": [20, 1440]
     }
     const miningMaxTiers = {
         "Cobblestone": 12,
