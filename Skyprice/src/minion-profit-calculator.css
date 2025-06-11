@@ -132,3 +132,15 @@ input:focus {
     color: #3b2d14;
     text-align: center;
 }
+
+.disclaimer {
+    background-color: #fff7e6;
+    border: 1px solid #facc15;
+    border-left: 5px solid #fbbf24;
+    color: #92400e;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}

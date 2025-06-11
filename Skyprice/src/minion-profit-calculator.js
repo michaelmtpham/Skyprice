@@ -214,6 +214,7 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
     const upgradeModifiers = {
         "Minion Expander": 1.05,
         "Flycatcher": 1.20,
+
     }
     const hopperLoss = {
         "Budget Hopper": 0.5,
@@ -368,7 +369,35 @@ document.getElementById("calculate").addEventListener("click", async () => {
         return;
     }
 
-    if (minionType === "Oak" || minionType === "Birch" || minionType === "Spruce") {
+    if (miningTypes.has(minionType)) {
+        resultBox.innerHTML = "The mining community greets you!";
+        return;
+    }
+
+    if (farmingTypes.has(minionType)) {
+        resultBox.innerHTML = "The farming community greets you!";
+        return;
+    }
+
+    if (fishingTypes.has(minionType)) {
+        resultBox.innerHTML = "The fishing community greets you!";
+        return;
+    }
+
+    if (foragingTypes.has(minionType)) {
+        resultBox.innerHTML = "The foraging community greets you!";
+
+
+
+
+
+
+        return;
+    }
+
+    if (combatTypes.has(minionType)) {
+        resultBox.innerHTML = "The combat community greets you!";
+        return;
     }
 
 
