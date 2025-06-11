@@ -33,6 +33,52 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
         "Clay"
     ];
 
+    const miningTypes = new Set([
+        "Cobblestone", "Coal", "Iron", "Gold", "Diamond", "Lapis",
+        "Emerald", "Redstone", "Quartz", "Obsidian", "Glowstone",
+        "Gravel", "Ice", "Sand", "End Stone", "Mithril", "Snow",
+        "Hard Stone", "Mycelium", "Red Sand"
+    ]);
+
+    const farmingTypes = new Set([
+        "Wheat", "Carrot", "Potato", "Pumpkin", "Melon", "Mushroom",
+        "Cocoa Beans", "Cactus", "Sugar Cane", "Nether Wart",
+        "Cow", "Pig", "Chicken", "Sheep", "Rabbit"]);
+
+    const foragingTypes = new Set(["Oak", "Birch", "Spruce", "Dark Oak", "Acacia", "Jungle"]);
+
+    const combatTypes = new Set([
+        "Zombie", "Skeleton", "Spider", "Cave Spider", "Creeper",
+        "Enderman", "Ghast", "Slime", "Blaze", "Magma Cube",
+        "Revenant", "Tarantula", "Voidling", "Inferno", "Vampire"
+    ]);
+
+    const fishingTypes = new Set([
+        "Fishing", "Clay"
+    ]);
+
+    const fuels = [
+        "Coal",
+        "Block of Coal",
+        "Enchanted Bread",
+        "Enchanted Coal",
+        "Enchanted Charcoal",
+        "Solar Panel",
+        "Enchanted Lava Bucket",
+        "Magma Bucket",
+        "Plasma Bucket",
+        "Everburning Flame",
+        "Hamster Wheel",
+        "Foul Flesh",
+        "Tasty Cheese",
+        "Catalyst",
+        "Hyper Catalyst",
+        "(RARE) Inferno Minion Fuel",
+        "(EPIC) Inferno Minion Fuel",
+        "(LEGENDARY) Inferno Minion Fuel",
+        "N/A"
+    ];
+
     const upgrades = [
         "Minion Expander",
         "Flycatcher",
@@ -297,7 +343,7 @@ document.getElementById("calculate").addEventListener("click", async () => {
         return;
     }
 
-    if (!fuelModifiers.includes(fuel)) {
+    if (!fuels.includes(fuel)) {
         resultBox.innerHTML = "Please enter a valid fuel type!";
         return;
     }
@@ -307,7 +353,7 @@ document.getElementById("calculate").addEventListener("click", async () => {
         return;
     }
 
-    if (!hopperLoss.includes(hopper)) {
+    if (!Object.keys(hopperLoss).includes(hopper)) {
         resultBox.innerHTML = "Please enter a valid hopper type!";
         return;
     }
@@ -316,5 +362,15 @@ document.getElementById("calculate").addEventListener("click", async () => {
         resultBox.innerHTML = "Please enter a valid upgrade!";
         return;
     }
+
+    if (upgrade1 === upgrade2) {
+        resultBox.innerHTML = "A minion cannot have two of the same upgrade!";
+        return;
+    }
+
+    if (minionType === "Oak" || minionType === "Birch" || minionType === "Spruce") {
+    }
+
+
 })
 })
