@@ -1,3 +1,4 @@
+window.addEventListener("DOMContentLoaded", () => {
 document.getElementById("banking-interest-calculator").addEventListener("click", async ()=> {
     window.location.href = 'banking-interest-calculator.html';
 });
@@ -9,15 +10,6 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
 });
 
 //----------------------------------------------------------------------------------------------------------------------
-
-
-//async function getBazaarPrice(productID) {
-//     const response = await fetch('https://api.hypixel.net/skyblock/bazaar');
-//     const data = await response.json();
-//
-//     if ((data.success) && (data.products[]))
-// }
-
 
 
 document.getElementById("calculate").addEventListener("click", async () => {
@@ -63,20 +55,20 @@ document.getElementById("calculate").addEventListener("click", async () => {
     }
     const fishingDrops = {
         "Fishing": [[554, 277, 133, 44, 33, 33, 33], [576, 288, 138, 46, 35, 35, 35], [600, 300, 144, 48, 36, 36, 36],
-                    [600, 300, 144, 48, 36, 36, 36], [635, 318, 152, 51, 38, 38, 38], [635, 318, 152, 51, 38, 38, 38]
-                    [691, 346, 166, 55, 41, 41, 41], [691, 346, 166, 55, 41, 41, 41], [815, 408, 196, 65, 49, 49, 49]
-                    [815, 408, 196, 65, 49, 49, 49], [1234, 617, 296, 99, 74, 74, 74], [1440, 720, 346, 115, 86, 86, 86]],
+            [600, 300, 144, 48, 36, 36, 36], [635, 318, 152, 51, 38, 38, 38], [635, 318, 152, 51, 38, 38, 38],
+            [691, 346, 166, 55, 41, 41, 41], [691, 346, 166, 55, 41, 41, 41], [815, 408, 196, 65, 49, 49, 49],
+            [815, 408, 196, 65, 49, 49, 49], [1234, 617, 296, 99, 74, 74, 74], [1440, 720, 346, 115, 86, 86, 86]],
         "Clay": [5400, 5400, 5760, 5760, 6284, 6284, 7200, 7200, 8640, 8640, 10800, 12343]
     }
     const farmingDrops = {
         "Wheat": [[2880, 4320], [2880, 4320], [3323, 4985], [3323, 4985], [3927, 5891], [3927, 5891], [4320, 6480],
-                  [4320, 6480,], [4800, 7200], [4800, 7200], [5400, 8100], [6171, 9257]],
+            [4320, 6480,], [4800, 7200], [4800, 7200], [5400, 8100], [6171, 9257]],
         "Melon": [9000, 9000, 9600, 9600, 10286, 10286, 11676, 11676, 13500, 13500, 16615, 21600],
         "Pumpkin": [1350, 1350, 1440, 1440, 1600, 1600, 1800, 1800, 2160, 2160, 2700, 3600],
         "Carrot": [6480, 6480, 7200, 7200, 8100, 8100, 9257, 9257, 10800, 10800, 12960, 16200],
         "Potato": [6480, 6480, 7200, 7200, 8100, 8100, 9257, 9257, 10800, 10800, 12960, 16200],
         "Mushroom": [[720, 720], [720, 720], [771, 771], [771, 771], [831, 831], [831, 831], [939, 939], [939, 939],
-                     [1080, 1080], [1080, 1080], [1350, 1350], [1800, 1800]],
+            [1080, 1080], [1080, 1080], [1350, 1350], [1800, 1800]],
         "Cactus": [4800, 4800, 5184, 5184, 5635, 5635, 6171, 6171, 7200, 7200, 8640, 10800],
         "Cocoa Beans": [4800, 4800, 5184, 5184, 5635, 5635, 6171, 6171, 7200, 7200, 8640, 10800],
         "Sugar Cane": [5891, 5891, 6480, 6480, 7200, 7200, 8100, 8100, 8938, 8938, 10800, 14400],
@@ -136,6 +128,15 @@ document.getElementById("calculate").addEventListener("click", async () => {
         "(RARE) Inferno Minion Fuel": [10, 1440],
         "(EPIC) Inferno Minion Fuel": [15, 1440],
         "(LEGENDARY) Inferno Minion Fuel": [20, 1440]
+    }
+    const upgradeModifiers = {
+        "Minion Expander": 1.05,
+        "Flycatcher": 1.20,
+    }
+    const hopperLoss = {
+        "Budget Hopper": 0.5,
+        "Enchanted Hopper": 0.9,
+        "N/A": 1.0
     }
     const miningMaxTiers = {
         "Cobblestone": 12,
@@ -206,4 +207,28 @@ document.getElementById("calculate").addEventListener("click", async () => {
         "Ghast": 12,
         "Slime": 11
     }
+    const maxTiers = {
+        miningMaxTiers,
+        foragingMaxTiers,
+        fishingMaxTiers,
+        farmingMaxTiers,
+        combatMaxTiers
+    }
+//------------------------------------------------------------------------------------------------------------------
+
+    try {
+        const itemName = "ENCHANTED_CARROT";
+
+        const [buyPrice, sellPrice] = await window.__TAURI__.core.invoke("get_bazaar_price", {
+            itemName,
+        });
+
+        resultBox.innerHTML = `<p><strong>Buy:</strong> ${buyPrice.toFixed(2)}</p>
+        <p><strong>Sell:</strong> ${sellPrice.toFixed(2)}</p>`;
+    }
+    catch (err) {
+        resultBox.textContent = "Error fetching price: " + err;
+        console.error(err);
+    }
+})
 })
