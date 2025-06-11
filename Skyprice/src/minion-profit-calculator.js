@@ -11,18 +11,6 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
 
 //----------------------------------------------------------------------------------------------------------------------
 
-
-document.getElementById("calculate").addEventListener("click", async () => {
-    const minionType = document.getElementById("minion-type").value;
-    const tier = parseInt(document.getElementById("minion-tier").value);
-    const fuel = document.getElementById("fuel-type").value;
-    const hopper = document.getElementById("automated-shipping").value;
-    const upgrade1 = document.getElementById("upgrade-1").value;
-    const upgrade2 = document.getElementById("upgrade-2").value;
-
-    const resultBox = document.querySelector(".result");
-    resultBox.innerHTML = "Calculating...";
-
     const miningDrops = {
         "Cobblestone": [3086, 3086, 3600, 3600, 4320, 4320, 4800, 4800, 5400, 5400, 6171, 7200],
         "Obsidian": [960, 960, 1029, 1029, 1108, 1108, 1234, 1234, 1440, 1440, 1800, 2057],
@@ -214,21 +202,23 @@ document.getElementById("calculate").addEventListener("click", async () => {
         farmingMaxTiers,
         combatMaxTiers
     }
-//------------------------------------------------------------------------------------------------------------------
 
-    try {
-        const itemName = "ENCHANTED_CARROT";
 
-        const [buyPrice, sellPrice] = await window.__TAURI__.core.invoke("get_bazaar_price", {
-            itemName,
-        });
+//----------------------------------------------------------------------------------------------------------------------
 
-        resultBox.innerHTML = `<p><strong>Buy:</strong> ${buyPrice.toFixed(2)}</p>
-        <p><strong>Sell:</strong> ${sellPrice.toFixed(2)}</p>`;
-    }
-    catch (err) {
-        resultBox.textContent = "Error fetching price: " + err;
-        console.error(err);
-    }
+document.getElementById("calculate").addEventListener("click", async () => {
+    const minionType = document.getElementById("minion-type").value;
+    const tier = parseInt(document.getElementById("minion-tier").value);
+    const fuel = document.getElementById("fuel-type").value;
+    const hopper = document.getElementById("automated-shipping").value;
+    const upgrade1 = document.getElementById("upgrade-1").value;
+    const upgrade2 = document.getElementById("upgrade-2").value;
+
+    const resultBox = document.querySelector(".result");
+    resultBox.innerHTML = "Calculating...";
+
+
+
+
 })
 })

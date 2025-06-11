@@ -63,10 +63,7 @@ impl BazaarCache {
 }
 
 #[tauri::command]
-async fn get_bazaar_price(
-    item_name: String,
-    state: tauri::State<'_, Mutex<BazaarCache>>
-) -> Result<(f64, f64), String> {
+async fn get_bazaar_price(item_name: String, state: tauri::State<'_, Mutex<BazaarCache>>) -> Result<(f64, f64), String> {
     let mut cache = state.lock().await;
 
     if cache.last_updated.elapsed() > Duration::from_secs(60) {
