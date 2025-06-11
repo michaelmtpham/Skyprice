@@ -10,6 +10,53 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
 });
 
 //----------------------------------------------------------------------------------------------------------------------
+    const minionNames = [
+        "Wheat", "Carrot", "Potato",
+        "Pumpkin", "Melon", "Mushroom",
+        "Cocoa Beans", "Cactus", "Sugar Cane",
+        "Cow", "Pig", "Chicken",
+        "Sheep", "Rabbit", "Nether Wart",
+        "Cobblestone", "Coal", "Iron",
+        "Gold", "Diamond", "Lapis",
+        "Emerald", "Redstone", "Quartz",
+        "Obsidian", "Glowstone", "Gravel",
+        "Ice", "Sand", "End Stone",
+        "Mithril", "Snow", "Hard Stone",
+        "Mycelium", "Red Sand", "Zombie",
+        "Skeleton", "Spider", "Cave Spider",
+        "Creeper", "Enderman", "Ghast",
+        "Slime", "Blaze", "Magma Cube",
+        "Revenant", "Tarantula", "Voidling",
+        "Inferno", "Vampire", "Oak",
+        "Spruce", "Birch", "Dark Oak",
+        "Acacia", "Jungle", "Fishing",
+        "Clay"
+    ];
+
+    const upgrades = [
+        "Minion Expander",
+        "Flycatcher",
+        "Diamond Spreading",
+        "Potato Spreading",
+        "Krampus Helmet",
+        "Enchanted Egg",
+        "Flint Shovel",
+        "Lesser Soulflow Engine",
+        "Soulflow Engine",
+        "Corrupt Soil",
+        "Sleepy Hollow",
+        "Auto Smelter",
+        "Compactor",
+        "Super Compactor 3000",
+        "Dwarven Super Compactor",
+        "Enchanted Shears",
+        "N/A"
+    ];
+
+    const infernoOnlyFuels = [
+        "(RARE) Inferno Minion Fuel", "(EPIC) Inferno Minion Fuel",
+        "(LEGENDARY) Inferno Minion Fuel"
+    ];
 
     const miningDrops = {
         "Cobblestone": [3086, 3086, 3600, 3600, 4320, 4320, 4800, 4800, 5400, 5400, 6171, 7200],
@@ -115,7 +162,8 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
         "Hyper Catalyst": [4, 360],
         "(RARE) Inferno Minion Fuel": [10, 1440],
         "(EPIC) Inferno Minion Fuel": [15, 1440],
-        "(LEGENDARY) Inferno Minion Fuel": [20, 1440]
+        "(LEGENDARY) Inferno Minion Fuel": [20, 1440],
+        "N/A": [1,Infinity]
     }
     const upgradeModifiers = {
         "Minion Expander": 1.05,
@@ -207,18 +255,66 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
 //----------------------------------------------------------------------------------------------------------------------
 
 document.getElementById("calculate").addEventListener("click", async () => {
-    const minionType = document.getElementById("minion-type").value;
+    const minionType = document.getElementById("minion-type").value.trim();
     const tier = parseInt(document.getElementById("minion-tier").value);
-    const fuel = document.getElementById("fuel-type").value;
-    const hopper = document.getElementById("automated-shipping").value;
-    const upgrade1 = document.getElementById("upgrade-1").value;
-    const upgrade2 = document.getElementById("upgrade-2").value;
+    const fuel = document.getElementById("fuel-type").value.trim();
+    const hopper = document.getElementById("automated-shipping").value.trim();
+    const upgrade1 = document.getElementById("upgrade-1").value.trim();
+    const upgrade2 = document.getElementById("upgrade-2").value.trim();
 
     const resultBox = document.querySelector(".result");
     resultBox.innerHTML = "Calculating...";
 
 
+//----------------------------------------------------------------------------------------------------------------------
 
+    if (!(minionNames.includes(minionType))) {
+        resultBox.innerHTML = "Please enter a valid minion type!";
+        return;
+    }
 
+    let maxTier = null;
+
+    if (isNaN(tier)) {
+        resultBox.innerHTML = "Please enter a valid tier number.";
+        return;
+    }
+
+    for (const category in maxTiers) {
+        if (maxTiers[category][minionType] !== undefined) {
+            maxTier = maxTiers[category][minionType];
+            break;
+        }
+    }
+
+    if (maxTier == null) {
+        resultBox.innerHTML = "Tier data not found for this minion.";
+        return;
+    }
+
+    if (tier > maxTier) {
+        resultBox.innerHTML = `${minionType} minion can only go up to Tier ${maxTier}!`;
+        return;
+    }
+
+    if (!fuelModifiers.includes(fuel)) {
+        resultBox.innerHTML = "Please enter a valid fuel type!";
+        return;
+    }
+
+    if (infernoOnlyFuels.includes(fuel) && minionType !== "Inferno") {
+        resultBox.innerHTML = `${fuel} can only be used in Inferno minions!`;
+        return;
+    }
+
+    if (!hopperLoss.includes(hopper)) {
+        resultBox.innerHTML = "Please enter a valid hopper type!";
+        return;
+    }
+
+    if (!upgrades.includes(upgrade1) || !upgrades.includes(upgrade2)) {
+        resultBox.innerHTML = "Please enter a valid upgrade!";
+        return;
+    }
 })
 })
