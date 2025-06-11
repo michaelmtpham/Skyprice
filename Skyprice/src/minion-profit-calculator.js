@@ -212,10 +212,79 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
         "N/A": [1,Infinity]
     }
     const upgradeModifiers = {
-        "Minion Expander": 1.05,
-        "Flycatcher": 1.20,
+        "Minion Expander": (minion, config) => ({speedMultiplier: 1.05}),
+        "Flycatcher": (minion, config) => ({speedMultiplier: 1.20}),
 
+        "Diamond Spreading": (minion, config) => {
+            return {
+                extraDrops: [{item: "Diamond", chance: 0.1}]
+            }
+        },
+        "Potato Spreading": (minion, config) => {
+            return {
+                extraDrops: [{item: "Potato", chance: 0.05}]
+            }
+        },
+
+        "Krampus Helmet": (minion, config) => {
+            return minion === "Snow" ? {speedMultiplier: 1.1} : {};
+        },
+
+        "Enchanted Egg": (minion, config) => {
+            return minion === "Chicken" ? {
+                extraDrops: [{item: "Enchanted Egg", chance: 0.01}]
+            } : {};
+        },
+
+        "Flint Shovel": (minion, config) => {
+            return minion === "Gravel" ? {
+                outputReplacement: {from : "Gravel", to: "Flint"}
+            } : {};
+        },
+
+        "Corrupt Soil": (minion, config) => {
+            return config.minionType === "Combat" ? {
+                outputReplacement: {from: "All", to: "Corrupt Fragment"},
+            } : {};
+        },
+
+        "Auto Smelter": (minion, config) => {
+            const smeltingMap = {
+                "Iron": {from: "Iron Ore", to: "Iron Ingot"},
+                "Gold": {from: "Gold Ore", to: "Gold Ingot"},
+                "Sand": {from: "Sand", to: "Glass"}
+            }
+            return smeltingMap[minion] || {};
+        },
+
+        "Compactor": (minion, config) => ({
+            compaction: {
+                ratio: 9,
+                from: minion + " Item",
+                to: minion + " Block"
+            }
+        }),
+        "Super Compactor 3000": (minion, config) => ({
+            compaction: {
+                ratio: 160,
+                from: minion + " Item",
+                to: "Enchanted " + minion
+            },
+        }),
+        "Dwarven Super Compactor": (minion, config) => ({
+            compaction: {
+                ratio: 160,
+                from: minion + " Item",
+                to: "Enchanted " + minion,
+                mithrilOnly: true
+            }
+        }),
+
+        "N/A": () => ({}),
+        "": () => ({})
     }
+
+
     const hopperLoss = {
         "Budget Hopper": 0.5,
         "Enchanted Hopper": 0.9,
@@ -386,12 +455,6 @@ document.getElementById("calculate").addEventListener("click", async () => {
 
     if (foragingTypes.has(minionType)) {
         resultBox.innerHTML = "The foraging community greets you!";
-
-
-
-
-
-
         return;
     }
 
