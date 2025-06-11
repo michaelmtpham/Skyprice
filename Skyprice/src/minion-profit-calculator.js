@@ -242,10 +242,51 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
             } : {};
         },
 
+        "Lesser Soulflow Engine": (minion, config) => {
+            if (combatTypes.has(minion)) {
+                return {
+                    extraDrops: [{
+                        item: "Soulflow",
+                        amount: 1,
+                        perActions: 10,
+                        value: 1000
+                    }]
+                };
+            }
+            return {};
+        },
+
+        "Soulflow Engine": (minion, config) => {
+            if (combatTypes.has(minion)) {
+                return {
+                    extraDrops: [{
+                        item: "Soulflow",
+                        amount: 1,
+                        perActions: 5,
+                        value: 1000
+                    }]
+                };
+            }
+            return {};
+        },
+
         "Corrupt Soil": (minion, config) => {
             return config.minionType === "Combat" ? {
                 outputReplacement: {from: "All", to: "Corrupt Fragment"},
             } : {};
+        },
+
+        "Sleepy Hollow": (minion, config) => {
+            if (minion === "Pumpkin") {
+                return {
+                    extraDrops: [{
+                        item: "Pumpkin Candy",
+                        chance: 0.1,
+                        value: 100
+                    }]
+                };
+            }
+            return {};
         },
 
         "Auto Smelter": (minion, config) => {
@@ -279,11 +320,23 @@ document.getElementById("minion-profit-calculator").addEventListener("click", as
                 mithrilOnly: true
             }
         }),
+        "Enchanted Shears": (minion, config) => {
+            if (minion === "Sheep") {
+                return {
+                    outputMultiplier: 1.3,
+                    extraDrops: [{
+                        item: "Mutton",
+                        chance: 0.05,
+                        value: 10
+                    }]
+                };
+            }
+            return {};
+        },
 
         "N/A": () => ({}),
         "": () => ({})
     }
-
 
     const hopperLoss = {
         "Budget Hopper": 0.5,
