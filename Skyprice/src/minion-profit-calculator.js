@@ -8,6 +8,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("flip-profit-calculator").addEventListener("click", async () => {
         window.location.href = 'flip-profit-calculator.html';
     });
+    document.getElementById("skytasks").addEventListener("click", async () => {
+        window.location.href = 'skytasks.html';
+    });
 
 //----------------------------------------------------------------------------------------------------------------------
     const minionNames = [
