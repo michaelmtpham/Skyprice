@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="flip-profit-calculator.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flip Profit Calculator</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class= "feature-box" id= "banking-interest-calculator" > Banking Interest Calculator </div>
+        <div class= "feature-box" id= "minion-profit-calculator" > Minion Profit Calculator </div>
+        <div class= "feature-box" id= "flip-profit-calculator" > Flip Profit Calculator </div>
+    </div>
+
+    <div class="content" id = "homeContent">
+        <div class = "flip-profit-calculator">
+            <div class = "section">
+                <label for = "buy-price">Enter Buy Price: </label>
+                <input id = "buy-price" type = "number">
+            </div>
+
+            <div class = "section">
+                <label for = "sell-price">Enter Sell Price: </label>
+                <input id = "sell-price" type = "number">
+            </div>
+
+            <div class = "section">
+                <label for = "profit-goal">(OPTIONAL) Enter Profit Goal: </label>
+                <input id = "profit-goal">
+            </div>
+
+            <button id = "calculate">Calculate Flip Profit</button>
+
+            <div class = "result">
+                <p><strong></strong></p>
+                <p><strong></strong></p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src = "flip-profit-calculator.js"> </script>
+</body>
+
+</html>

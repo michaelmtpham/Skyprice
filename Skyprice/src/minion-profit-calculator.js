@@ -1,13 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
-document.getElementById("banking-interest-calculator").addEventListener("click", async ()=> {
-    window.location.href = 'banking-interest-calculator.html';
-});
-document.getElementById("price-calculator").addEventListener("click", async () => {
-    window.location.href = 'price-calculator.html';
-});
-document.getElementById("minion-profit-calculator").addEventListener("click", async () => {
-    window.location.href = 'minion-profit-calculator.html';
-});
+    document.getElementById("banking-interest-calculator").addEventListener("click", async () => {
+        window.location.href = 'banking-interest-calculator.html';
+    });
+    document.getElementById("minion-profit-calculator").addEventListener("click", async () => {
+        window.location.href = 'minion-profit-calculator.html';
+    });
+    document.getElementById("flip-profit-calculator").addEventListener("click", async () => {
+        window.location.href = 'flip-profit-calculator.html';
+    });
 
 //----------------------------------------------------------------------------------------------------------------------
     const minionNames = [
@@ -515,7 +515,5 @@ document.getElementById("calculate").addEventListener("click", async () => {
         resultBox.innerHTML = "The combat community greets you!";
         return;
     }
-
-
 })
 })
