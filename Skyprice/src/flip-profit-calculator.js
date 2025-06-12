@@ -20,30 +20,37 @@ window.addEventListener("DOMContentLoaded", () => {
     const resultBox = document.querySelector(".result");
     const resultParagraphs = resultBox.querySelectorAll("p");
 
+    const validTradeTypes = [
+        "Auction House (Standard)", "Auction House (BIN)", "Bazaar Instant Buy",
+        "Bazaar Instant Sell", "Bazaar Buy Order", "Bazaar Sell Order", "Player Trade"
+    ]
+
     calculateBtn.addEventListener("click", () => {
 
         const buyPrice = parseFloat(buyPriceInput.value);
         const sellPrice = parseFloat(sellPriceInput.value);
         const profitGoal = parseFloat(profitGoalInput.value);
+        let taxDeductor = 0;
 
-        const validTradeTypes = [
-            "Auction House (Standard)", "Auction House (BIN)", "Bazaar Instant Buy",
-            "Bazaar Instant Sell", "Bazaar Buy Order", "Bazaar Sell Order", "Player Trade"
-        ]
-
-        resultParagraphs[0].textContent = "";
-        resultParagraphs[1].textContent = "";
-
-
-
+        if (!(validTradeTypes.includes(tradeType.value))) {
+            resultParagraphs[0].textContent = "Please enter a valid trade type!";
+            return;
+        }
 
         if (isNaN(buyPrice) || isNaN(sellPrice)) {
             resultParagraphs[0].textContent = "Please enter valid numbers for buy and sell prices!";
             return;
         }
 
-        const profit = sellPrice - buyPrice;
+        resultParagraphs[0].textContent = "";
+        resultParagraphs[1].textContent = "";
 
+
+        if (tradeType.value === "Auction House (Standard)") {
+            taxDeductor = 0.95;
+        }
+
+        const profit = sellPrice - buyPrice;
 
         resultParagraphs[0].textContent = `Profit per flip: ${profit.toLocaleString()} coins`
 
@@ -51,6 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (profit >= profitGoal) {
                 resultParagraphs[1].textContent = `This meets your goal of a profit of ${profitGoal.toLocaleString()} coins!`;
             }
+
             else {
                 remainingProfit = profitGoal - profit;
                 resultParagraphs[1].textContent = `This is below your goal of a profit of ${profitGoal.toLocaleString()} coins.
