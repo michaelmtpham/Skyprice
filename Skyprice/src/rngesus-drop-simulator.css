@@ -34,7 +34,14 @@ body, html {
 }
 
 .feature-box:hover {
-    background-color: #e5e5e5;
+    background-color: #0000CD;
+    transform: scale(1.02);
+}
+
+.feature-box:active {
+    background-color: #1c2e4a;
+    color: white;
+    font-weight: bold;
 }
 
 .content {
@@ -42,6 +49,21 @@ body, html {
     padding: 2rem;
     background-color: #f9f9f9;
     overflow-y: auto;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: #00008B;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: #0000FF;
 }
 
 .rngesus-drop-simulator {

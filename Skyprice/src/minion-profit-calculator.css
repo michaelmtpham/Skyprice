@@ -34,7 +34,14 @@ body, html {
 }
 
 .feature-box:hover {
-    background-color: #e0e0e0;
+    background-color: #ebb866;
+    transform: scale(1.02);
+}
+
+.feature-box:active {
+    background-color: #A17F1A;
+    color: white;
+    font-weight: bold;
 }
 
 .content {
@@ -42,6 +49,21 @@ body, html {
     padding: 2rem;
     background-color: #ffffff;
     overflow-y: auto;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: #CFB53B;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: #AA6C39;
 }
 
 .minion-profit-calculator {

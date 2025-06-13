@@ -34,7 +34,14 @@ body, html {
 }
 
 .feature-box:hover {
-    background-color: #e0e0e0;
+    background-color: #ffe8d4;
+    transform: scale(1.02);
+}
+
+.feature-box:active {
+    background-color: #ff8c00;
+    color: white;
+    font-weight: bold;
 }
 
 .content {
@@ -42,6 +49,19 @@ body, html {
     padding: 2rem;
     background-color: #ffffff;
     overflow-y: auto;
+}
+.page-header {
+    margin-bottom: 1.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    color: #994400;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: #7c3a00;
 }
 
 .banking-interest-calculator {

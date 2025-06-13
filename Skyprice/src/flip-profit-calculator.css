@@ -34,7 +34,14 @@ body, html {
 }
 
 .feature-box:hover {
-    background-color: #e0e0e0;
+    background-color: #FF9999;
+    transform: scale(1.02);
+}
+
+.feature-box:active {
+    background-color: #7d1211;
+    color: white;
+    font-weight: bold;
 }
 
 .content {
@@ -42,6 +49,21 @@ body, html {
     padding: 2rem;
     background-color: #ffffff;
     overflow-y: auto;
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: #8B0000;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: #ff9999;
 }
 
 .flip-profit-calculator {

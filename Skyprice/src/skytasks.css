@@ -34,6 +34,17 @@ body, html {
 }
 
 .feature-box:hover {
+    background-color: #90ee90;
+    transform: scale(1.02);
+}
+
+.feature-box:active {
+    background-color: #006400;
+    color: white;
+    font-weight: bold;
+}
+
+.feature-box:hover {
     background-color: #e0e0e0;
 }
 
