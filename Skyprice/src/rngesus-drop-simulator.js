@@ -17,7 +17,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("simulate").addEventListener("click", () => {
         const dropName = document.getElementById("drop-name").value.trim();
         const dropChance = parseFloat(document.getElementById("drop-chance").value);
+        const dropValue = parseFloat(document.getElementById("drop-value").value);
         const simulations = parseInt(document.getElementById("simulations").value);
+        const costPerSimulation = parseFloat(document.getElementById("cost-per-simulation").value);
 
         const result = document.querySelector(".result");
         result.innerHTML = "";
@@ -32,8 +34,18 @@ window.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        if (isNaN(dropValue) || dropValue < 0) {
+            result.innerHTML = "Please enter a valid drop chance!";
+            return;
+        }
+
         if (isNaN(simulations)) {
             result.innerHTML = "Please enter a valid number of simulations!";
+            return;
+        }
+
+        if (isNaN(costPerSimulation) || costPerSimulation < 0) {
+            result.innerHTML = "Please enter a valid cost per simulation!";
             return;
         }
 
@@ -74,17 +86,20 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         const percentage = ((successfulDrops / simulations) * 100).toFixed(2);
+        const profit = (successfulDrops * dropValue) - (simulations * costPerSimulation);
+        const averageProfitPerSimulation = (profit / simulations).toFixed(2);
 
         result.innerHTML = `
             <p>Drop: ${dropName}</p>
-            <p>Drop Rate: ${dropChance}</p>
-            <p>Simulations: ${simulations}</p>
-            <p>Expected Drops: ${expectedDrops}</p>
-            <p>Drops Obtained: ${successfulDrops} (${percentage}%) </p>
-            <p>Longest Dry Streak: ${longestDryStreak}</p>
+            <p>Drop Rate: ${dropChance.toLocaleString()}%</p>
+            <p>Simulations: ${simulations.toLocaleString()}</p>
+            <p>Expected Drops: ${expectedDrops.toLocaleString()}</p>
+            <p>Drops Obtained: ${successfulDrops.toLocaleString()} (${percentage.toLocaleString()}%) </p>
+            <p>Profit: ${profit.toLocaleString()} coins</p>
+            <p>Average Profit Per Simulation: ${averageProfitPerSimulation.toLocaleString()} coins</p>
+            <p>Longest Dry Streak: ${longestDryStreak.toLocaleString()}</p>
             <p>RNGesus Verdict: ${emoji}</p>
         `;
     })
 })
-
 
