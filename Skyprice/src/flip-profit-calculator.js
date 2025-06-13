@@ -30,40 +30,74 @@ window.addEventListener("DOMContentLoaded", () => {
         const buyPrice = parseFloat(buyPriceInput.value);
         const sellPrice = parseFloat(sellPriceInput.value);
         const profitGoal = parseFloat(profitGoalInput.value);
-        let taxDeductor = 0;
+
+        resultParagraphs[0].textContent = "";
+        resultParagraphs[1].textContent = "";
+        resultParagraphs[2].textContent = "";
+        resultParagraphs[3].textContent = "";
 
         if (!(validTradeTypes.includes(tradeType.value))) {
             resultParagraphs[0].textContent = "Please enter a valid trade type!";
             return;
         }
 
-        if (isNaN(buyPrice) || isNaN(sellPrice)) {
-            resultParagraphs[0].textContent = "Please enter valid numbers for buy and sell prices!";
+        if (isNaN(buyPrice) || buyPrice < 0) {
+            resultParagraphs[0].textContent = "Please enter a valid buy price!";
             return;
         }
 
-        resultParagraphs[0].textContent = "";
-        resultParagraphs[1].textContent = "";
+        if (isNaN(sellPrice) || sellPrice < 0) {
+            resultParagraphs[0].textContent = "Please enter a valid sell price!";
+            return;
+        }
 
+        const untaxedProfit = sellPrice - buyPrice;
+        let taxes = 0;
 
         if (tradeType.value === "Auction House (Standard)") {
-            taxDeductor = 0.95;
+            taxes += sellPrice * 0.05;
+            if (untaxedProfit > 1000000) {
+                taxes += sellPrice * 0.01;
+            }
+        }
+
+        else if (tradeType.value === "Auction House (BIN)") {
+            if (sellPrice < 10000000) {
+                taxes += sellPrice * 0.01;
+            }
+            else if (sellPrice >= 10000000 && sellPrice <= 10000000) {
+                taxes += sellPrice * 0.02;
+            }
+            else {
+                taxes += sellprice * 0.03;
+            }
+        }
+        else if (tradeType.value === "Bazaar Instant Sell" || tradeType.value === "Bazaar Sell Order") {
+            taxes += sellPrice * 0.0125;
+        }
+        else {
+            taxes = 0;
         }
 
         const profit = sellPrice - buyPrice;
 
-        resultParagraphs[0].textContent = `Profit per flip: ${profit.toLocaleString()} coins`
+        resultParagraphs[0].textContent = `Gross profit: ${profit.toLocaleString()} coins`;
+        resultParagraphs[1].textContent = `Taxes: ${taxes.toLocaleString()} coins`;
+        resultParagraphs[2].textContent = `Net profit: 
+        ${(profit-taxes).toLocaleString()} coins`;
+
 
         if (!isNaN(profitGoal)) {
             if (profit >= profitGoal) {
-                resultParagraphs[1].textContent = `This meets your goal of a profit of ${profitGoal.toLocaleString()} coins!`;
+                resultParagraphs[3].textContent = `This meets your goal of a profit of ${profitGoal.toLocaleString()} coins!`;
             }
-
             else {
-                remainingProfit = profitGoal - profit;
-                resultParagraphs[1].textContent = `This is below your goal of a profit of ${profitGoal.toLocaleString()} coins.
+                let remainingProfit = profitGoal - profit;
+                resultParagraphs[3].textContent = `This is below your goal of a profit of ${profitGoal.toLocaleString()} coins.
                 You would need to earn ${remainingProfit.toLocaleString()} more coins to reach that goal.`;
             }
         }
+
+
     })
 })

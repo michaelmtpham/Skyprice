@@ -26,11 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.getElementById('proceedBtn').addEventListener('click', function() {
-    if (api_Key_Valid) {
       window.location.href = 'homePage.html';
-    }
-    else {
-      document.getElementById('greet-input').textContent = 'You cannot proceed without a valid API key!';
-    }
   })
 })
+
+//api_Key_Valid
+
+//else {
+//       document.getElementById('greet-input').textContent = 'You cannot proceed without a valid API key!';
+//     }
