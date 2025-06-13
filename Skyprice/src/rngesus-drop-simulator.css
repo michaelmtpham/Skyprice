@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #011F5B;
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 2px solid #ccc;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.feature-box {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.feature-box:hover {
+    background-color: #e5e5e5;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+}
+
+.rngesus-drop-simulator {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(1, 31, 91, 0.15);
+    background-color: white;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #990000;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: white;
+    color: #011f5b;
+    transition: border-color 0.2s ease;
+}
+
+input:focus {
+    border-color: #990000;
+    outline: none;
+}
+
+#simulate {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    background-color: #990000;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+}
+
+#simulate:hover {
+    background-color: #7d0000;
+}
+
+.result {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.15rem;
+    color: #011f5b;
+}
+
+.result p {
+    margin-bottom: 0.5rem;
+}
+
+.result strong {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.disclaimer {
+    background-color: #f6e6e6;
+    border: 1px solid #990000;
+    border-left: 5px solid #990000;
+    color: #5a0000;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(1, 31, 91, 0.2);
+}
+
+
