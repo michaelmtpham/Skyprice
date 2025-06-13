@@ -44,10 +44,6 @@ body, html {
     font-weight: bold;
 }
 
-.feature-box:hover {
-    background-color: #e0e0e0;
-}
-
 .content {
     flex-grow: 1;
     padding: 2rem;

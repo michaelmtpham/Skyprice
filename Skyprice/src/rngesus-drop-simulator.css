@@ -34,7 +34,7 @@ body, html {
 }
 
 .feature-box:hover {
-    background-color: #0000CD;
+    background-color: #3982b8;
     transform: scale(1.02);
 }
 
