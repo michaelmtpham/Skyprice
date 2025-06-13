@@ -16,7 +16,7 @@ body, html {
 
 .sidebar {
     width: 30%;
-    background-color: #f2f2f2;
+    background-color: #008000;
     padding: 1rem;
     overflow-y: auto;
     border-right: 2px solid #ccc;
@@ -44,88 +44,41 @@ body, html {
     overflow-y: auto;
 }
 
-.flip-profit-calculator {
+.skytasks-content {
     max-width: 720px;
     margin: 0 auto;
     padding: 2rem;
-    border:  1px solid #f7d7da;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(163, 31, 52, 0.15);
+    background-color: #f0f9ff;
+    border: 1px solid #dbeafe;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    text-align: center;
+}
+.intro-text {
+    margin-bottom: 1.5rem;
+    color: #1e3a8a;
+    font-weight: 500;
 }
 
-.section {
-    margin-bottom: 2rem;
-}
-
-.section label {
+#generate-task {
+    padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: #a31f34;
-    margin-bottom: 0.4rem;
-    display: inline-block;
-    background: none;
+    background-color: #3b82f6;
+    color: white;
     border: none;
-    padding: 0;
-}
-
-input {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 2px solid #f7d7da;
     border-radius: 8px;
-    background-color: white;
-    color: #7d1620;
-    transition: border-color 0.2s ease;
-}
-
-input:focus {
-    border-color: #a31f34;
-    outline: none;
-}
-
-#calculate {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-    background-color: #ff6f3c;
-    color: #white;
-    border: none;
-    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    margin-top: 1.5rem;
 }
 
-#calculate:hover {
-    background-color: #e05524
+#generate-task:hover {
+    background-color: #2563eb;
 }
 
-.result {
+#task-result {
     margin-top: 2rem;
-    text-align: center;
     font-size: 1.15rem;
-    color: #7d1620;
-}
-
-.result p {
-    margin-bottom: 0.5rem;
-}
-
-.result strong {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.disclaimer {
-    background-color: #fae6e8;
-    border: 1px solid #a31f34;
-    border-left: 5px solid #d43c4e;
-    color: #6b0f22;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-    box-shadow: 0 2px 8px rgba(163, 31, 52, 0.3);
+    color: #1e40af;
+    min-height: 2em;
 }
