@@ -65,7 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (sellPrice < 10000000) {
                 taxes += sellPrice * 0.01;
             }
-            else if (sellPrice >= 10000000 && sellPrice <= 10000000) {
+            else if (sellPrice >= 10000000 && sellPrice <= 20000000) {
                 taxes += sellPrice * 0.02;
             }
             else {

@@ -60,7 +60,8 @@ const tasks = [
     "maybe do that homework you've been putting off",
     "uninstall...then reinstall",
     "go ding dong ditching",
-    "enjoy your life and stop playing this game lol"
+    "enjoy your life and stop playing this game lol",
+    "enjoy your summer"
 ]
 
 const button = document.getElementById('generate-task');
