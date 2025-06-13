@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        let emoji = "😐";
+        let emoji = "😐 meh 😐";
         const diff = successfulDrops - expectedDrops;
 
         if (diff >= 10) {
