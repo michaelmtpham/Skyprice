@@ -11,6 +11,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("skytasks").addEventListener("click", async () => {
         window.location.href = 'skytasks.html';
     });
+    document.getElementById("rngesus-drop-simulator").addEventListener("click", async () => {
+        window.location.href = 'rngesus-drop-simulator.html';
+    })
 
 //----------------------------------------------------------------------------------------------------------------------
     const minionNames = [

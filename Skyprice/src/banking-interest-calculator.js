@@ -10,6 +10,9 @@ document.getElementById("flip-profit-calculator").addEventListener("click", asyn
 document.getElementById("skytasks").addEventListener("click", async () => {
     window.location.href = 'skytasks.html';
 });
+document.getElementById("rngesus-drop-simulator").addEventListener("click", async () => {
+    window.location.href = 'rngesus-drop-simulator.html';
+})
 
 //----------------------------------------------------------------------------------------------------------------------
 
