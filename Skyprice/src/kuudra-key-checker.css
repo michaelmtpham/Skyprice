@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #00356b;
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 2px solid #cccccc;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.feature-box {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.feature-box:hover {
+    background-color: #e0e0e0;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f9fafb;
+    overflow-y: auto;
+}
+
+.disclaimer {
+    background-color: #e6f0ff;
+    border: 1px solid #00356b;
+    border-left: 5px solid #00356b;
+    color: #102542;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0, 53, 107, 0.25);
+}
+
+.kuudra-key-checker {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #f0f6ff;
+    border: 1px solid #dbe9ff;
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.key-button {
+    background-color: #00356b;
+    color: white;
+    border: none;
+
+}
+

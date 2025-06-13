@@ -82,3 +82,11 @@ body, html {
     color: #1e40af;
     min-height: 2em;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 12px;
+}

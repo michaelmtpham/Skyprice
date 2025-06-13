@@ -13,6 +13,9 @@ document.getElementById("skytasks").addEventListener("click", async () => {
 document.getElementById("rngesus-drop-simulator").addEventListener("click", async () => {
     window.location.href = 'rngesus-drop-simulator.html';
 })
+document.getElementById("kuudra-key-checker").addEventListener("click", async () => {
+    window.location.href = 'kuudra-key-checker.html';
+})
 
 //----------------------------------------------------------------------------------------------------------------------
 
