@@ -11,21 +11,33 @@
   <body>
     <main class="container">
       <section class = "display">
-        <h1>Skyprice</h1>
-        <p class = "subtitle">Enter a temporary Hypixel API Key to get started.</p>
+        <h1 class = "main-title">Welcome to <span class = "highlight">Skyprice</span></h1>
+        <p class = "subtitle">The best Skyblock app with calculators, simulators, and galore!</p>
 
         <p class = "info">
-          You can generate an API key from the
+          To get started, enter a temporary API key.
+          If you don't have one, visit the
           <a id = "dev-dashboard" target = _blank href = "https://developer.hypixel.net/dashboard/">
             Hypixel Developer Dashboard</a>.
         </p>
 
         <form class="form" id="api-form">
           <input id="api-input" placeholder="Enter an API key..."/>
-          <button id = "api-submit" type="submit"> Submit </button>
+          <button id = "api-submit" type="submit">Submit</button>
         </form>
 
         <p id="greet-input" class = "feedback"> </p>
+
+        <details class = "info-section">
+          <summary>What is Skyprice?</summary>
+          <p>
+            Skyprice is a Skyblock companion app meant to enhance your experience and
+            take many boring tasks off your hand. In my experience playing Skyblock,
+            many of these tasks weren't particularly interesting, which is my primary
+            motivation for creating this. I hope that it benefits you as much as it
+            benefits me!
+          </p>
+        </details>
       </section>
 
       <button id = "proceedBtn" > Proceed </button>
