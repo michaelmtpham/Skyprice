@@ -100,7 +100,6 @@ input {
     border: 2px solid #0072ce;
     border-radius: 8px;
     background-color: white;
-    color: #add8e6;
     transition: border-color 0.2s ease;
 }
 

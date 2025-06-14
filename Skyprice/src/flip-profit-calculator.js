@@ -74,7 +74,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 taxes += sellPrice * 0.02;
             }
             else {
-                taxes += sellprice * 0.03;
+                taxes += sellPrice * 0.03;
             }
         }
         else if (tradeType.value === "Bazaar Instant Sell" || tradeType.value === "Bazaar Sell Order") {
