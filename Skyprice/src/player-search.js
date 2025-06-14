@@ -20,6 +20,21 @@ document.getElementById("player-search").addEventListener("click", async () => {
     window.location.href = 'player-search.html';
 })
 
+//--------------------------------------------------------------------------------------------------
 
+
+
+const calculate = document.getElementById("calculate");
+const result = document.getElementById("result");
+
+calculate.addEventListener("click", async () => {
+    try{
+        result.textContent = await window.__TAURI__.core.invoke('get_collections')
+    }
+    catch (error) {
+        console.error("Calculation error:", error)
+        result.textContent = "Error fetching collections. Please try again.";
+    }
+})
 
 

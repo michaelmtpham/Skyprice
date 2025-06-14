@@ -1,3 +1,5 @@
+mod player_helper;
+
 use serde_json::Value;
 use std::collections::HashMap;
 use tauri::async_runtime::Mutex; 
@@ -75,7 +77,7 @@ async fn get_bazaar_price(item_name: String, state: tauri::State<'_, Mutex<Bazaa
 }
 
 #[tauri::command]
-async fn get_collections() -> Result<Value, String> {
+async fn get_collections() -> Result<String, String> {
     const BAZAAR_URL: &str = "https://api.hypixel.net/v2/resources/skyblock/collections";
 
     let response = reqwest::get(BAZAAR_URL)
@@ -99,8 +101,10 @@ async fn get_collections() -> Result<Value, String> {
 
     println!("Full API response:\n{}", serde_json::to_string_pretty(&json).unwrap());
 
-    Ok(json["collections"].clone())
+    Ok(json["collections"].to_string().clone())
 }
+
+
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
