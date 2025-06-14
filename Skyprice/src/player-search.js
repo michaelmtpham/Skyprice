@@ -19,3 +19,7 @@ document.getElementById("dungeon-chest-comparator").addEventListener("click", as
 document.getElementById("player-search").addEventListener("click", async () => {
     window.location.href = 'player-search.html';
 })
+
+
+
+
