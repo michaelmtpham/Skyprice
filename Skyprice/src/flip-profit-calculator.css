@@ -63,7 +63,7 @@ body, html {
 
 .page-header .subtitle {
     font-size: 1rem;
-    color: #ff9999;
+    color: #555;
 }
 
 .flip-profit-calculator {
@@ -112,7 +112,7 @@ input:focus {
     font-size: 1.05rem;
     font-weight: 700;
     background-color: #ff6f3c;
-    color: #white;
+    color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
