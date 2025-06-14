@@ -1,5 +1,6 @@
 mod player_helper;
 mod non_player_helper;
+mod uuid;
 
 use serde_json::Value;
 use std::collections::HashMap;
@@ -10,7 +11,7 @@ use crate::non_player_helper::{get_collections, get_skills, get_items, get_elect
 
 struct BazaarCache {
     data: HashMap<String, (f64, f64)>,
-    last_updated: Instant,
+    last_updated: Instant, 
 }
 
 impl BazaarCache {
