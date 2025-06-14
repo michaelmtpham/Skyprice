@@ -1,10 +1,12 @@
 mod player_helper;
+mod non_player_helper;
 
 use serde_json::Value;
 use std::collections::HashMap;
 use tauri::async_runtime::Mutex; 
 use std::time::{Instant, Duration};
-
+use crate::player_helper::{get_current_news, get_player_info};
+use crate::non_player_helper::{get_collections, get_skills, get_items, get_election_mayor, get_bingo};
 
 struct BazaarCache {
     data: HashMap<String, (f64, f64)>,
@@ -77,30 +79,7 @@ async fn get_bazaar_price(item_name: String, state: tauri::State<'_, Mutex<Bazaa
         .ok_or_else(|| format!("Item '{}' not found in bazaar", item_name))
 }
 
-#[tauri::command]
-async fn get_collections() -> Result<String, String> {
-    const BAZAAR_URL: &str = "https://api.hypixel.net/v2/resources/skyblock/collections";
 
-    let response = reqwest::get(BAZAAR_URL)
-        .await
-        .map_err(|e| format!("Network error: {}", e))?;
-
-    if !response.status().is_success() {
-        return Err(format!("API error: {}", response.status()));
-    }
-
-    let json: Value = response.json()
-        .await
-        .map_err(|e| format!("JSON error: {}", e))?;
-
-    if json["success"] != Value::Bool(true) {
-        return Err("Hypixel API returned failure".into());
-    }
-
-    println!("Full API response:\n{}", serde_json::to_string_pretty(&json).unwrap());
-
-    Ok(json["collections"].to_string().clone())
-}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -108,7 +87,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(bazaar_cache)
-        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, player_helper::get_current_news])
+        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news, get_player_info])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

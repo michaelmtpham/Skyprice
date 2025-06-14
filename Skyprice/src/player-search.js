@@ -29,12 +29,12 @@ const result = document.getElementById("result");
 
 calculate.addEventListener("click", async () => {
     try{
-        result.textContent = await window.__TAURI__.core.invoke('get_current_news', {apiKey: localStorage.getItem("APIKey")})
+        result.textContent = await window.__TAURI__.core.invoke('get_player_info', {apiKey: localStorage.getItem("APIKey"),
+                                                                                        playerUuid: "1ab30a61-2b67-40ae-bf1a-69d41be8a593"})
     }
     catch (error) {
         console.error("Calculation error:", error)
         result.textContent = "Error fetching collections. Please try again." + error;
     }
 })
-
 
