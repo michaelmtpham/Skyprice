@@ -16,6 +16,9 @@ document.getElementById("rngesus-drop-simulator").addEventListener("click", asyn
 document.getElementById("dungeon-chest-comparator").addEventListener("click", async () => {
     window.location.href = 'dungeon-chest-comparator.html';
 })
+document.getElementById("player-search").addEventListener("click", async () => {
+    window.location.href = 'player-search.html';
+})
 
 //---------------------------------------------------------------------------------------------------------
 

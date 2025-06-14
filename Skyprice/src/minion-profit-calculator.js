@@ -17,6 +17,9 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dungeon-chest-comparator").addEventListener("click", async () => {
         window.location.href = 'dungeon-chest-comparator.html';
     })
+    document.getElementById("player-search").addEventListener("click", async () => {
+        window.location.href = 'player-search.html';
+    })
 
 //----------------------------------------------------------------------------------------------------------------------
     const minionNames = [

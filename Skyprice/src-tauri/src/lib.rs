@@ -74,6 +74,29 @@ async fn get_bazaar_price(item_name: String, state: tauri::State<'_, Mutex<Bazaa
         .ok_or_else(|| format!("Item '{}' not found in bazaar", item_name))
 }
 
+async fn get_collections() -> Result<(), String> {
+    const BAZAAR_URL: &str = "https://api.hypixel.net/skyblock/collections";
+
+    let response = reqwest::get(BAZAAR_URL)
+        .await
+        .map_err(|e| format!("Network error: {}", e))?;
+
+    if !response.status().is_success() {
+        return Err(format!("API error: {}", response.status()));
+    }
+
+    let json: Value = response.json()
+        .await
+        .map_err(|e| format!("JSON error: {}", e))?;
+
+    if json["success"] != Value::Bool(true) {
+        return Err("Hypixel API returned failure".into());
+    }
+
+    let products = json["products"].as_object()
+        .ok_or("Missing products data")?;
+        
+}
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
