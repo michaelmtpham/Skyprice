@@ -29,7 +29,7 @@ const result = document.getElementById("result");
 
 calculate.addEventListener("click", async () => {
     try{
-        result.textContent = await window.__TAURI__.core.invoke('get_collections')
+        result.textContent = await window.__TAURI__.core.invoke('get_current_news', {apiKey: localStorage.getItem("APIKey")})
     }
     catch (error) {
         console.error("Calculation error:", error)

@@ -4,7 +4,7 @@ use serde_json::Value;
 use std::collections::HashMap;
 use tauri::async_runtime::Mutex; 
 use std::time::{Instant, Duration};
-use crate::player_helper::get_current_news;
+
 
 struct BazaarCache {
     data: HashMap<String, (f64, f64)>,
@@ -108,7 +108,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(bazaar_cache)
-        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news])
+        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, player_helper::get_current_news])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
