@@ -33,7 +33,7 @@ calculate.addEventListener("click", async () => {
     }
     catch (error) {
         console.error("Calculation error:", error)
-        result.textContent = "Error fetching collections. Please try again.";
+        result.textContent = "Error fetching collections. Please try again." + error;
     }
 })
 

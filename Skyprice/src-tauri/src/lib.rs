@@ -4,6 +4,7 @@ use serde_json::Value;
 use std::collections::HashMap;
 use tauri::async_runtime::Mutex; 
 use std::time::{Instant, Duration};
+use crate::player_helper::get_current_news;
 
 struct BazaarCache {
     data: HashMap<String, (f64, f64)>,
@@ -96,15 +97,10 @@ async fn get_collections() -> Result<String, String> {
         return Err("Hypixel API returned failure".into());
     }
 
-    let products = json["collections"].as_object()
-        .ok_or("Missing products data")?;
-
     println!("Full API response:\n{}", serde_json::to_string_pretty(&json).unwrap());
 
     Ok(json["collections"].to_string().clone())
 }
-
-
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -112,7 +108,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(bazaar_cache)
-        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections])
+        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
