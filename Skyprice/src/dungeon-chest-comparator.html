@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="dungeon-chest-comparator.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuudra Key Checker</title>
+</head>
+
+<body>
+<div class = "container">
+  <div class="sidebar">
+    <div class= "feature-box" id= "banking-interest-calculator" > Banking Interest Calculator </div>
+    <div class= "feature-box" id= "minion-profit-calculator" > Minion Profit Calculator </div>
+    <div class= "feature-box" id= "flip-profit-calculator" > Flip Profit Calculator </div>
+    <div class= "feature-box" id= "skytasks" > Skytasks </div>
+    <div class= "feature-box" id= "rngesus-drop-simulator" > RNGesus Drop Simulator </div>
+    <div class= "feature-box" id = "dungeon-chest-comparator" > Dungeon Chest Comparator </div>
+  </div>
+
+  <div class = "content" id = "homeContent">
+    <div class = "page-header">
+      <h1>Dungeon Chest Comparator</h1>
+      <p class = "subtitle">Because spending millions on pixelated junk is the true endgame grind.</p>
+    </div>
+
+    <div class = "disclaimer">
+      <p>Tons of people waste coins unlocking 500k+ chests for items worth 200k. This tool will
+      save you millions of coins over time. Please note that this feature is currently only operational
+      for items that are sold in the Bazaar. Because of this, when entering items, make sure
+      they are entered exactly like how they are spelled in-game.</p>
+    </div>
+
+    <div class = "section">
+      <label for = "chest-cost">Enter Chest Cost (coins): </label>
+      <input id = "chest-cost" type = "number" placeholder = "e.g. 500,000" min = "0">
+    </div>
+
+    <div class = "section">
+      <label for = "input-1">Enter First Item: </label>
+      <input id = "input-1" placeholder = "e.g. Hot Potato Book">
+    </div>
+
+    <div class = "section">
+      <label for = "input-2">Enter Second Item: </label>
+      <input id = "input-2" placeholder = "e.g. Enchanted Book (Ultimate Wise V)">
+    </div>
+
+    <div class = "section">
+      <label for = "input-3">Enter Third Item: </label>
+      <input id = "input-3" placeholder = "e.g. Recombobulator 3000">
+    </div>
+
+    <div class = "section">
+      <label for = "input-4">Enter Fourth Item: </label>
+      <input id = "input-4" placeholder = "e.g. Enchanted Book (Last Stand V)">
+    </div>
+
+    <div class = "section">
+      <label for = "input-5">Enter Fifth Item: </label>
+      <input id = "input-5" placeholder = "e.g. Shadow Warp">
+    </div>
+
+    <button id ="calculate">Calculate Profit</button>
+
+  </div>
+</div>
+<script src = "dungeon-chest-comparator.js"> </script>
+</body>
+
+</html>

@@ -42,6 +42,7 @@ body, html {
     background-color: #1c2e4a;
     color: white;
     font-weight: bold;
+    transform: scale(1.05);
 }
 
 .content {

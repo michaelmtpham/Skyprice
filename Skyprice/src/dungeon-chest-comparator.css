@@ -43,6 +43,7 @@ body, html {
     background-color: #0072ce;
     color: white;
     font-weight: bold;
+    transform: scale(1.05);
 }
 
 .content {
@@ -78,70 +79,50 @@ body, html {
     box-shadow: 0 2px 8px rgba(0, 53, 107, 0.25);
 }
 
-.kuudra-key-checker {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem;
-    border-radius: 12px;
-    background-color: #f0f6ff;
-    border: 1px solid #dbe9ff;
-    box-shadow:0 4px 12px rgba(0, 0, 0, 0.06);
+.section {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.section-label {
+label {
     font-size: 1.05rem;
     color: #00356b;
     font-weight: 600;
+    margin-bottom: 0.3rem;
+    user-select: none;
 }
 
-.section {
-    margin-top: 1rem;
-}
-
-.button-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0.75rem;
-    margin-top: 1rem;
-}
-
-.key-button {
-    background-color: #00356b;
-    color: white;
-    border: none;
+input {
+    width: 100%;
     padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #0072ce;
     border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    background-color: white;
+    color: #add8e6;
+    transition: border-color 0.2s ease;
 }
 
-.key-button-hover {
-    background-color: #00509e;
-}
-
-.key-button.selected {
-    background-color: #0072ce;
-    box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.2);
-}
-
-#check-keys {
+#calculate {
     width: 100%;
     padding: 1rem;
     font-size: 1.05rem;
     font-weight: 600;
-    background-color: #0072ce;
-    color: white;
+    background-color: #0f52ba;
+    color: #000435;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-#check-keys:hover {
-    background-color: #00509e;
+#calculate:hover {
+    text-align: center;
+    font-size: 1.15rem;
+    color: #26619c;
 }
 
 .result {
