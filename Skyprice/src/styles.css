@@ -54,15 +54,40 @@ body::before {
   text-align: center;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px); }
+  to {opacity: 1; transform: translateY(0); }
+}
+
+.main-title {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.highlight {
+  color: #39dcd2;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555555;
+}
+
+.info {
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  color: #444444;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #396cd8;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
 }
 
 a:hover {
