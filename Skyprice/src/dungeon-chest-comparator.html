@@ -28,8 +28,12 @@
     <div class = "disclaimer">
       <p>Tons of people waste coins unlocking 500k+ chests for items worth 200k. This tool will
       save you millions of coins over time. Please note that this feature is currently only operational
-      for items that are sold in the Bazaar. Because of this, when entering items, make sure
-      they are entered exactly like how they are spelled in-game.</p>
+      for items that are sold in the Bazaar. Because of this, when entering items, please format
+      them as ALL_CAPS_WITH_UNDERSCORES.<br>
+      You can click
+        <a id = "bazaar-api" target = _blank href = "https://api.hypixel.net/skyblock/bazaar"> here</a>
+         to find correct names.
+        </p>
     </div>
 
     <div class = "section">
@@ -39,30 +43,32 @@
 
     <div class = "section">
       <label for = "input-1">Enter First Item: </label>
-      <input id = "input-1" placeholder = "e.g. Hot Potato Book">
+      <input id = "input-1" placeholder = "e.g. HOT_POTATO_BOOK">
     </div>
 
     <div class = "section">
       <label for = "input-2">Enter Second Item: </label>
-      <input id = "input-2" placeholder = "e.g. Enchanted Book (Ultimate Wise V)">
+      <input id = "input-2" placeholder = "e.g. ENCHANTMENT_ULTIMATE_WISE_5">
     </div>
 
     <div class = "section">
       <label for = "input-3">Enter Third Item: </label>
-      <input id = "input-3" placeholder = "e.g. Recombobulator 3000">
+      <input id = "input-3" placeholder = "e.g. RECOMBOBULATOR_3000">
     </div>
 
     <div class = "section">
       <label for = "input-4">Enter Fourth Item: </label>
-      <input id = "input-4" placeholder = "e.g. Enchanted Book (Last Stand V)">
+      <input id = "input-4" placeholder = "e.g. ENCHANTED_GOLD">
     </div>
 
     <div class = "section">
       <label for = "input-5">Enter Fifth Item: </label>
-      <input id = "input-5" placeholder = "e.g. Shadow Warp">
+      <input id = "input-5" placeholder = "e.g. KUUDRA_TEETH">
     </div>
 
     <button id ="calculate">Calculate Profit</button>
+
+    <div id = "result" class = "result"></div>
 
   </div>
 </div>

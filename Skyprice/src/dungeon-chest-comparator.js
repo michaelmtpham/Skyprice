@@ -20,9 +20,9 @@ document.getElementById("dungeon-chest-comparator").addEventListener("click", as
 //--------------------------------------------------------------------------------------------------
 
 const calculate = document.getElementById("calculate");
+const result = document.getElementById("result");
 
 calculate.addEventListener("click", async () => {
-
 const chestCost = parseFloat(document.getElementById("chest-cost").value);
 const inputs = [
     document.getElementById("input-1"),
@@ -31,8 +31,6 @@ const inputs = [
     document.getElementById("input-4"),
     document.getElementById("input-5")
 ];
-
-const result = document.getElementById("result");
 
     result.textContent = "Calculating...";
 
@@ -56,6 +54,11 @@ const result = document.getElementById("result");
 
         for (const item of items) {
             try {
+                const formattedItem = item
+                    .toUpperCase()
+                    .replace(/' /g, "")
+                    .replace(/\s+/g, '_')
+                    .replace(/[()]/g, "");
                 const prices = await window.__TAURI__.core.invoke("get_bazaar_price", {itemName: item});
                 itemValues.push(prices[1]);
             }
@@ -92,7 +95,4 @@ const result = document.getElementById("result");
         console.error("Calculation error:", error)
         result.textContent = "Error fetching prices. Please try again.";
     }
-
 })
-
-
