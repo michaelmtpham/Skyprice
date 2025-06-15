@@ -22,36 +22,22 @@ document.getElementById("player-search").addEventListener("click", async () => {
 
 //--------------------------------------------------------------------------------------------------
 
+const APIKey = localStorage.getItem("APIKey");
 const search = document.getElementById("search");
-const apiKey = localStorage.getItem("APIKey")
 const result = document.getElementById("result");
 
 search.addEventListener("click", async () => {
     const username = document.getElementById("username").value;
-    result.textContent = "Loading...";
-    result.textContent = apiKey
-
-    if (!(username)) {
-        result.innerHTML = "Please enter a valid username.";
-        return;
-    }
 
     try {
-        const UUID = await window.__TAURI__.core.invoke('get_uuid_from_username', {username: username})
-
-        const response = await window.__TAURI__.core.invoke('get_player_info', {
-            api_key : apiKey,
-            player_uuid : UUID
+        const playerInfo = await window.__TAURI__.core.invoke("get_player_info", {
+            apiKey: APIKey,  // snake_case
+            playerUsername: username  // came
         });
-
-        if (!response.profiles || response.profiles.length === 0) {
-            result.innerHTML = "No Skyblock profiles found.";
-            return;
-        }
-
-        console.log("Player profiles:", profilesJson);
+        result.innerHTML = playerInfo;
     }
-    catch (error) {
-        result.textContent = `Error: ${error}}`;
+    catch(error) {
+        console.error(error);
+        result.innerHTML = "error occurred"+ error;
     }
 })
