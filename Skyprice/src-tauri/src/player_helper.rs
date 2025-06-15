@@ -20,9 +20,6 @@ pub async fn get_player_info(api_key: String, player_uuid: String) -> Result<Str
     validate_response(response, String::from("profiles")).await
 }
 
-
-
-
 #[tauri::command]
 pub async fn get_current_news(api_key: String) -> Result<String, String> {
     let full_url = format!("{}/skyblock/news", HYPIXEL_BASEURL);

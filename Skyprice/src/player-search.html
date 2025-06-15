@@ -19,16 +19,33 @@
         <div class= "feature-box" id = "dungeon-chest-comparator" > Dungeon Chest Comparator </div>
         <div class= "feature-box" id = "player-search" > Player Search </div>
     </div>
+
     <div class="content" id="homeContent">
-        testing testing 123
-        hi my name is michael
-        i'm going to try to use the rust function I just made
+        <div class = "page-header">
+            <h1>Player Search</h1>
+            <p class = "subtitle">Stalk to your heart's content.</p>
+        </div>
 
-        <button id ="calculate">Calculate Profit</button>
+        <div class = "disclaimer">
+            Enter a Minecraft username to search for their Hypixel Skyblock stats.
+            Please note that this feature is still in beta and may display inaccurate
+            data depending on API limitations.
+        </div>
 
-        <div id = "result" class = "result"></div>
+        <div class = "player-search">
+            <div class = "section">
+                <label for = "username">Minecraft Username:</label>
+                <input type = "text" id = "username" placeholder = "Enter username...">
+            </div>
+
+            <button id ="search">Search Player</button>
+
+            <div id = "result" class = "result">
+                <p><strong></strong></p>
+            </div>
+
+        </div>
     </div>
-
 </div>
 <script src = "player-search.js"> </script>
 </body>

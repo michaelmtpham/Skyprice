@@ -1,6 +1,5 @@
 
 
-
 const HYPIXEL_BASEURL: &str = "https://api.hypixel.net/v2/resources/skyblock";
 
 
@@ -26,7 +25,8 @@ pub async fn get_skills() -> Result<String, String> {
     crate::player_helper::validate_response(response, String::from("skills")).await
 }
 
-pub async fn get_items() -> Result<String, String> {
+#[tauri::command]
+pub async fn get_hypixel_items() -> Result<String, String> {
     let full_url = format!("{}/items", HYPIXEL_BASEURL);
 
     let response = reqwest::get(full_url)
@@ -36,6 +36,7 @@ pub async fn get_items() -> Result<String, String> {
     crate::player_helper::validate_response(response, String::from("items")).await
 }
 
+#[tauri::command]
 pub async fn get_election_mayor() -> Result<String, String> {
     let full_url = format!("{}/election", HYPIXEL_BASEURL);
 
@@ -46,6 +47,7 @@ pub async fn get_election_mayor() -> Result<String, String> {
     crate::player_helper::validate_response(response, String::from("mayor")).await
 }
 
+#[tauri::command]
 pub async fn get_bingo() -> Result<String, String> {
     let full_url = format!("{}/bingo", HYPIXEL_BASEURL);
 

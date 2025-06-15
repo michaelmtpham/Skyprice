@@ -22,19 +22,36 @@ document.getElementById("player-search").addEventListener("click", async () => {
 
 //--------------------------------------------------------------------------------------------------
 
-
-
-const calculate = document.getElementById("calculate");
+const search = document.getElementById("search");
+const apiKey = localStorage.getItem("APIKey")
 const result = document.getElementById("result");
 
-calculate.addEventListener("click", async () => {
-    try{
-        result.textContent = await window.__TAURI__.core.invoke('get_player_info', {apiKey: localStorage.getItem("APIKey"),
-                                                                                        playerUuid: "1ab30a61-2b67-40ae-bf1a-69d41be8a593"})
+search.addEventListener("click", async () => {
+    const username = document.getElementById("username").value;
+    result.textContent = "Loading...";
+    result.textContent = apiKey
+
+    if (!(username)) {
+        result.innerHTML = "Please enter a valid username.";
+        return;
+    }
+
+    try {
+        const UUID = await window.__TAURI__.core.invoke('get_uuid_from_username', {username: username})
+
+        const response = await window.__TAURI__.core.invoke('get_player_info', {
+            api_key : apiKey,
+            player_uuid : UUID
+        });
+
+        if (!response.profiles || response.profiles.length === 0) {
+            result.innerHTML = "No Skyblock profiles found.";
+            return;
+        }
+
+        console.log("Player profiles:", profilesJson);
     }
     catch (error) {
-        console.error("Calculation error:", error)
-        result.textContent = "Error fetching collections. Please try again." + error;
+        result.textContent = `Error: ${error}}`;
     }
 })
-

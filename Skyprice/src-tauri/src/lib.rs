@@ -7,11 +7,12 @@ use std::collections::HashMap;
 use tauri::async_runtime::Mutex; 
 use std::time::{Instant, Duration};
 use crate::player_helper::{get_current_news, get_player_info};
-use crate::non_player_helper::{get_collections, get_skills, get_items, get_election_mayor, get_bingo};
+use crate::non_player_helper::{get_collections, get_skills, get_hypixel_items, get_election_mayor, get_bingo};
+use crate::uuid::{get_uuid_from_username};
 
 struct BazaarCache {
     data: HashMap<String, (f64, f64)>,
-    last_updated: Instant, 
+    last_updated: Instant,
 }
 
 impl BazaarCache {
@@ -21,6 +22,7 @@ impl BazaarCache {
             last_updated: Instant::now() - Duration::from_secs(60),
         }
     }
+    
 
     async fn update(&mut self) -> Result<(), String> {
         const BAZAAR_URL: &str = "https://api.hypixel.net/skyblock/bazaar";
@@ -88,7 +90,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(bazaar_cache)
-        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news, get_player_info])
+        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news, get_player_info, get_hypixel_items, get_uuid_from_username, get_skills, get_bingo, get_election_mayor])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
