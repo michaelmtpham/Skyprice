@@ -43,6 +43,22 @@ pub async fn get_current_news(api_key: String) -> Result<String, String> {
 
 }
 
+#[tauri::command(rename_all = "snake_case")]
+pub async fn transcribe_player_info(username: String, raw_input: String, trimmed_uuid: String) -> Result<String, String> {
+    let data: Value = serde_json::from_str(&raw_input)
+        .map_err(|e| format!("Failed to parse JSON: {}", e))?;
+
+    let username = username;
+    let trimmed_uuid = trimmed_uuid;
+
+    let result = format!(
+        "Username: {}\nUUID: {}",
+        username, trimmed_uuid
+    );
+
+    Ok(result)
+}
+
 
 pub async fn validate_response(response: Response, json_category: String) -> Result<String, String> {
     if !response.status().is_success() {
