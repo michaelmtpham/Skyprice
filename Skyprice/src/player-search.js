@@ -51,11 +51,10 @@ search.addEventListener("click", async () => {
             .replace(/\s*\|\s*/g, "<br>")
             .replace(/"/g, "")
             .replace(/\{current:/g, "")
-            .replace(/\}/g, "")
+            .replace(/}/g, "")
             .replace(/\d{4,}(?:\.\d+)?/g, (match) => {
                 return Number(match).toLocaleString();
-            });
-
+            }); //NOTE TO SELF: DO NOT USE THIS FOR GET BASIC INFO
     }
     catch(error) {
         console.error(error);
