@@ -59,6 +59,21 @@ pub async fn transcribe_player_info(raw_input: String) -> Result<Value, String> 
 }
 
 #[tauri::command(rename_all = "snake_case")]
+pub async fn get_basic_info(raw_input: String, username: String) -> Result<String, String> {
+    let first_profile = transcribe_player_info(raw_input).await?;
+
+    let cute_name = &first_profile["cute_name"];
+    let profile_id = &first_profile["profile_id"];
+
+    let result = format!(
+        "Username: {} | UUID: {} | Profile Name: {}",
+        username, profile_id, cute_name,
+    );
+    
+    Ok(result)
+}
+
+#[tauri::command(rename_all = "snake_case")]
 pub async fn get_accessory_bag_storage(raw_input: String, trimmed_uuid: String) -> Result<String, String> {
     let first_profile = transcribe_player_info(raw_input).await?;
 
@@ -68,7 +83,7 @@ pub async fn get_accessory_bag_storage(raw_input: String, trimmed_uuid: String) 
     let selected_power = &accessory_bag_storage["selected_power"];
 
     let result = format!(
-        "Highest Magical Power: {}\nSelected Power: {}",
+        "Highest Magical Power: {} | Selected Power: {}",
         highest_magical_power, selected_power
     );
 
@@ -79,8 +94,9 @@ pub async fn get_accessory_bag_storage(raw_input: String, trimmed_uuid: String) 
 pub async fn get_currencies(raw_input: String, trimmed_uuid: String) -> Result<String, String> {
     let first_profile = transcribe_player_info(raw_input).await?;
 
-    let currencies = &first_profile["members"][&trimmed_uuid]["coin_purse"];
+    let currencies = &first_profile["members"][&trimmed_uuid]["currencies"];
     let coins = &currencies["coin_purse"];
+    let bank_account_balance = &first_profile["members"][&trimmed_uuid]["profile"]["bank_account"];
     let essences = &currencies["essence"];
 
     let diamond_essence = &essences["DIAMOND"];
@@ -91,8 +107,8 @@ pub async fn get_currencies(raw_input: String, trimmed_uuid: String) -> Result<S
     let wither_essence =  &essences["WITHER"];
 
     let result = format!(
-        "Coins: {} | Diamond Essence: {} | Dragon Essence: {} | Gold Essence: {} | Spider Essence: {} | Undead Essence: {} | Wither Essence: {}",
-        coins, diamond_essence, dragon_essence, gold_essence, spider_essence, undead_essence, wither_essence
+        "Purse: {} | Bank Account Balance: {} | Diamond Essence: {} | Dragon Essence: {} | Gold Essence: {} | Spider Essence: {} | Undead Essence: {} | Wither Essence: {}",
+        coins, bank_account_balance, diamond_essence, dragon_essence, gold_essence, spider_essence, undead_essence, wither_essence
     );
 
     Ok(result)
@@ -134,6 +150,38 @@ pub async fn get_fairy_souls(raw_input: String, trimmed_uuid: String) -> Result<
     Ok(result)
 }
 
+#[tauri::command(rename_all = "snake_case")]
+pub async fn get_copper(raw_input: String, trimmed_uuid: String) -> Result<String, String> {
+    let first_profile = transcribe_player_info(raw_input).await?;
+
+    let copper = &first_profile["members"][&trimmed_uuid]["garden_player_data"]["copper"];
+
+    let result = format!(
+        "Copper: {}", copper
+    );
+
+    Ok(result)
+}
+
+#[tauri::command(rename_all = "snake_case")]
+pub async fn get_player_auction_history(raw_input: String, trimmed_uuid: String) -> Result<String, String> {
+    let first_profile = transcribe_player_info(raw_input).await?;
+
+    let auction_history = &first_profile["members"][&trimmed_uuid]["player_stats"]["auctions"];
+    let bids = &auction_history["bids"];
+    let completed_auctions = &auction_history["completed"];
+    let created_auctions = &auction_history["created"];
+    let auction_fees_paid = &auction_history["fees"];
+    let gold_earned = &auction_history["gold_earned"];
+    let gold_spent = &auction_history["gold_spent"];
+    let highest_bid = &auction_history["highest_bid"];
+
+    let result = format!(
+        "Bids: {} | Completed Auctions: {} | Created Auctions: {} | Auction Fees Paid: {} | Gold Earned: {} | Gold Spent: {} | Highest Bid: {}",
+        bids, completed_auctions, created_auctions, auction_fees_paid, gold_earned, gold_spent, highest_bid
+    );
+    Ok(result)
+}
 
 
 pub async fn validate_response(response: Response, json_category: String) -> Result<String, String> {
@@ -151,3 +199,4 @@ pub async fn validate_response(response: Response, json_category: String) -> Res
 
     Ok(json[json_category].to_string().clone())
 }
+

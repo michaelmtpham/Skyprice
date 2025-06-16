@@ -42,12 +42,19 @@ search.addEventListener("click", async () => {
             playerUsername: username
         });
 
-        result.innerHTML = (await window.__TAURI__.core.invoke("transcribe_player_info", {
-            username: username,
+        let raw = await window.__TAURI__.core.invoke("get_basic_info", {
             raw_input: playerInfo,
-            full_uuid: fullUUID,
-            trimmed_uuid: trimmedUUID
-        })).replace(/\n/g, "<br>").replace(/"/g, "");
+            username: username
+        });
+
+        result.innerHTML = raw
+            .replace(/\s*\|\s*/g, "<br>")
+            .replace(/"/g, "")
+            .replace(/\{current:/g, "")
+            .replace(/\}/g, "")
+            .replace(/\d{4,}(?:\.\d+)?/g, (match) => {
+                return Number(match).toLocaleString();
+            });
 
     }
     catch(error) {
@@ -55,17 +62,4 @@ search.addEventListener("click", async () => {
         result.innerHTML = error;
     }
 })
-
-asdasd
-//const data = JSON.parse(playerInfo);
-//
-//         const firstProfile = Object.values(data)[0];
-//
-//         result.innerHTML = `Username: ${username}<br>`
-//
-//         result.innerHTML += `Profile Name: ${firstProfile.cute_name}<br>`;
-//
-//         result.innerHTML += `UUID: ${fullUUID}<br>`;
-//
-//         result.innerHTML += `${JSON.stringify(firstProfile["members"][trimmedUUID]["currencies"]["coin_purse"])}`;
 
