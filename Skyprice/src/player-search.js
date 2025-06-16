@@ -47,7 +47,7 @@ search.addEventListener("click", async () => {
             raw_input: playerInfo,
             full_uuid: fullUUID,
             trimmed_uuid: trimmedUUID
-        })).replace(/\n/g, "<br>");
+        })).replace(/\n/g, "<br>").replace(/"/g, "");
 
     }
     catch(error) {
@@ -56,7 +56,7 @@ search.addEventListener("click", async () => {
     }
 })
 
-
+asdasd
 //const data = JSON.parse(playerInfo);
 //
 //         const firstProfile = Object.values(data)[0];
