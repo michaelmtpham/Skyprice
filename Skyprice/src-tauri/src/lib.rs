@@ -8,6 +8,7 @@ use tauri::async_runtime::Mutex;
 use std::time::{Instant, Duration};
 use crate::player_helper::{get_current_news, get_player_info};
 use crate::non_player_helper::{get_collections, get_skills, get_hypixel_items, get_election_mayor, get_bingo};
+use crate::uuid::{trimmed_uuid, untrimmed_uuid};
 
 
 struct BazaarCache {
@@ -90,7 +91,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .manage(bazaar_cache)
-        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news, get_player_info, get_hypixel_items, get_skills, get_bingo, get_election_mayor])
+        .invoke_handler(tauri::generate_handler![get_bazaar_price, get_collections, get_current_news, get_player_info, get_hypixel_items, get_skills, get_bingo, get_election_mayor, untrimmed_uuid, trimmed_uuid])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -18,7 +18,7 @@ pub async fn get_player_info(api_key: String, player_username: String) -> Result
 
     let client = reqwest::Client::new();
     let response = client.get(full_url)
-        .query(&[("uuid", uuid.unwrap())])
+        .query(&[("uuid", uuid.unwrap())]) //note to self: fix this for if uuid value is None
         .header("API-Key", api_key)
         .send()
         .await

@@ -20,15 +20,15 @@ pub async fn trimmed_uuid(username: String,) -> Result<String, String> {
     let json: Value = response.json()
         .await
         .map_err(|e| format!("JSON error: {}", e))?;
-    
+
 
     Ok(json["id"].as_str().unwrap().to_string())
 }
 
-
+#[tauri::command]
 pub async fn untrimmed_uuid(username: String) -> Result<String, String> {
      let input:String = trimmed_uuid(username).await?;
-    
+
     let part1 = &input[0..8];
     let part2 = &input[8..12];
     let part3 = &input[12..16];
