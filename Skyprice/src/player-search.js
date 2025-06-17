@@ -29,36 +29,57 @@ const result = document.getElementById("result");
 search.addEventListener("click", async () => {
     result.innerHTML = "Calculating...";
     const username = document.getElementById("username").value;
-    const fullUUID = await window.__TAURI__.core.invoke("untrimmed_uuid", {
-        username: username
-    });
-    const trimmedUUID = await window.__TAURI__.core.invoke("trimmed_uuid", {
-        username: username
-    })
+    if (!username) {
+        result.innerHTML = "No username found.";
+    }
 
     try {
+        const trimmedUUID = await window.__TAURI__.core.invoke("trimmed_uuid", {
+            username: username
+        })
         const playerInfo = await window.__TAURI__.core.invoke("get_player_info", {
             apiKey: APIKey,
             playerUsername: username
         });
 
-        let raw = await window.__TAURI__.core.invoke("get_basic_info", {
+        let raw = await window.__TAURI__.core.invoke("get_currencies", {
             raw_input: playerInfo,
-            username: username
+            trimmed_uuid: trimmedUUID
         });
 
-        result.innerHTML = raw
-            .replace(/\s*\|\s*/g, "<br>")
-            .replace(/"/g, "")
-            .replace(/\{current:/g, "")
-            .replace(/}/g, "")
-            .replace(/\d{4,}(?:\.\d+)?/g, (match) => {
-                return Number(match).toLocaleString();
-            }); //NOTE TO SELF: DO NOT USE THIS FOR GET BASIC INFO
+        let profiles = (playerInfo.match(/cute_name/g) || []).length.toString();
+
+        result.innerHTML = profiles;
+
     }
     catch(error) {
         console.error(error);
         result.innerHTML = error;
     }
 })
+
+async function populateProfileDropdown(rawData, profiles) {
+     const dropdown = document.getElementById("profile-dropdown");
+     dropdown.innerHTML = "";
+     let cuteNames = [];
+
+     for (let i = 0; i < rawData; i++) {
+        cuteNames[i] =
+    }
+
+}
+
+
+
+
+
+//.replace(/\d{4,}(?:\.\d+)?/g, (match) => {
+//                 return Number(match).toLocaleString();
+//             }); //NOTE TO SELF: DO NOT USE THIS FOR GET BASIC INFO
+
+//raw
+//             .replace(/\s*\|\s*/g, "<br>")
+//             .replace(/"/g, "")
+//             .replace(/\{current:/g, "")
+//             .replace(/}/g, "")
 
