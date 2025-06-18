@@ -1,12 +1,13 @@
+@import
+url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   font-weight: 400;
-
   color: #0f0f0f;
   background-color: #f6f6f6;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +23,7 @@ body, html {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
   font-family: inherit;
   color: inherit;
@@ -30,10 +32,7 @@ body, html {
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background-color: rgba(0,0,0,0.4);
   z-index: 0;
   pointer-events: none;
@@ -42,12 +41,12 @@ body::before {
 .container {
   position: relative;
   z-index: 1;
-  max-width: 400px;
-  margin: 10vh auto 0 auto;
-  padding: 3rem 2rem;
-  background-color: rgba(255,255,255,0.85);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  max-width: 460px;
+  margin: 12vh auto;
+  padding: 3rem 2.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,22 +60,22 @@ body::before {
 }
 
 .main-title {
-  font-size: 1rem;
+  font-size: 2rem;
   margin-bottom: 0.3rem;
 }
 
 .highlight {
-  color: #39dcd2;
+  color: #396cd8;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
   color: #555555;
 }
 
 .info {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   margin-bottom: 1.5rem;
   color: #444444;
 }
@@ -84,6 +83,7 @@ body::before {
 a {
   font-weight: 500;
   color: #396cd8;
+  text-decoration: none;
 }
 
 .row {
@@ -92,42 +92,73 @@ a {
 }
 
 a:hover {
-  color: #535bf2;
+  color: #2f4db2;
+  text-decoration: underline;
 }
 
-input,
-button {
-  border-radius: 8px;
+input, button {
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.65em 1.2em;
   font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ccc;
 }
 
 button {
   cursor: pointer;
+  background: linear-gradient(to right, #4c8df1, #396cd8);
+  color: white;
+  font-weight: bold;
 }
 
 button:hover {
-  border-color: #396cd8;
+  opacity: 0.9;
 }
 button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+  transform: scale(0.98);
 }
 
-input,
-button {
-  outline: none;
+#proceedBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.8em 1.5em;
+  background-color: #00885a;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#greet-input {
-  margin-right: 5px;
+#proceedBtn:hover {
+  background-color: #006f4c;
+}
+
+.feedback {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #d93025;
+}
+
+.info-section {
+  text-align: left;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.info-section summary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -136,30 +167,30 @@ button {
     background-color: #2f2f2f;
   }
 
-  a:hover {
+  .container {
+    background-color: rgba(25, 25, 25, 0.85);
+  }
+
+  a {
     color: #24c8db;
   }
 
   input,
   button {
     color: #ffffff;
-    background-color: #0f0f0f98;
+    background-color: rgba(20, 20, 20, 0.85);
+    border: 1px solid #444444;
   }
+
   button:active {
-    background-color: #0f0f0f69;
+    background-color: #222222 ;
   }
-}
 
-#proceedBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: auto;
-  z-index: 1000;
-}
+  #proceedBtn {
+    background-color: #00aa77;
+  }
 
-.info-section summary {
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 0.5rem;
+  #proceedBtn:hover {
+    background-color: #00875a;
+  }
 }
