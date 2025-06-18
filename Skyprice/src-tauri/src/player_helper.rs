@@ -183,7 +183,6 @@ pub async fn get_player_auction_history(raw_input: String, trimmed_uuid: String)
     Ok(result)
 }
 
-
 pub async fn validate_response(response: Response, json_category: String) -> Result<String, String> {
     if !response.status().is_success() {
         return Err(format!("API error: {}, error is {:?}", response.status(), response.text().await ));
