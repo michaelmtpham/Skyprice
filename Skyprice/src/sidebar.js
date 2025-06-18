@@ -31,7 +31,15 @@ export function setupSidebarNavigation(routes) {
         const element = document.getElementById(id);
         if (element) {
             element.addEventListener("click", () => {
-                window.location.href = page;
+                const overlay = document.getElementById("page-fade-overlay");
+
+                if (overlay) {
+                    overlay.classList.add("active");
+                }
+
+                setTimeout(() => {
+                    window.location.href = page;
+                }, 500);
             });
         }
     }

@@ -171,4 +171,22 @@ input:focus {
     box-shadow: 0 2px 8px rgba(1, 31, 91, 0.2);
 }
 
+#page-fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+}
+
+#page-fade-overlay.active {
+    opacity: 0.85;
+    pointer-events: all;
+}
+
 

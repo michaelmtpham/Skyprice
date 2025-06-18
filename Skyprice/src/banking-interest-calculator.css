@@ -65,11 +65,6 @@ body, html {
     user-select: none;
 }
 
-.feature-box:active {
-    background-color: #ff8c00;
-    color: white;
-}
-
 .content {
     flex-grow: 1;
     padding: 2rem;
@@ -215,4 +210,22 @@ input:focus {
     margin-bottom: 2rem;
     font-size: 0.95rem;
     box-shadow: 0 2px 8px rgba(191, 87, 0, 0.25);
+}
+
+#page-fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+}
+
+#page-fade-overlay.active {
+    opacity: 0.85;
+    pointer-events: all;
 }
