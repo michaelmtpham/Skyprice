@@ -20,6 +20,15 @@ document.getElementById("player-search").addEventListener("click", async () => {
     window.location.href = 'player-search.html';
 })
 
+const sidebar = document.getElementById("sidebar");
+
+sidebar.addEventListener("mouseenter", () => {
+    sidebar.classList.add("expanded");
+});
+
+sidebar.addEventListener("mouseleave", () => {
+    sidebar.classList.remove("expanded");
+});
 //---------------------------------------------------------------------------------------------------------
 
 const tasks = [

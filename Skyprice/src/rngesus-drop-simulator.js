@@ -21,6 +21,15 @@ window.addEventListener("DOMContentLoaded", () => {
         window.location.href = 'player-search.html';
     })
 
+    const sidebar = document.getElementById("sidebar");
+
+    sidebar.addEventListener("mouseenter", () => {
+        sidebar.classList.add("expanded");
+    });
+
+    sidebar.addEventListener("mouseleave", () => {
+        sidebar.classList.remove("expanded");
+    });
 //--------------------------------------------------------------------------------------------------------------
 
     document.getElementById("simulate").addEventListener("click", () => {

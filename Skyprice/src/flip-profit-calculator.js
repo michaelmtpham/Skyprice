@@ -18,6 +18,15 @@ window.addEventListener("DOMContentLoaded", () => {
         window.location.href = 'player-search.html';
     })
 
+    const sidebar = document.getElementById("sidebar");
+
+    sidebar.addEventListener("mouseenter", () => {
+        sidebar.classList.add("expanded");
+    });
+
+    sidebar.addEventListener("mouseleave", () => {
+        sidebar.classList.remove("expanded");
+    });
 //--------------------------------------------------------------------------------------------------------------
 
     const tradeType = document.getElementById("trade-type")
