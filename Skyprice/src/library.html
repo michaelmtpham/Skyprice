@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="banking-interest-calculator.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banking Interest Calculator</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="sidebar" id = "sidebar">
+        <div class= "feature-box" id= "homePage">
+            <span class = "icon">🏠</span>
+            <span class = "label">Home</span>
+        </div>
+        <div class= "feature-box" id= "banking-interest-calculator">
+            <span class = "icon">💴</span>
+            <span class = "label">Banking Interest</span>
+        </div>
+        <div class= "feature-box" id= "minion-profit-calculator">
+            <span class = "icon">🐺</span>
+            <span class = "label">Minion Profit</span>
+        </div>
+        <div class= "feature-box" id= "flip-profit-calculator">
+            <span class = "icon">🤸</span>
+            <span class = "label">Flip Profit</span>
+        </div>
+        <div class= "feature-box" id= "skytasks">
+            <span class = "icon">📜</span>
+            <span class = "label">Skytasks</span>
+        </div>
+        <div class= "feature-box" id= "rngesus-drop-simulator">
+            <span class = "icon">🎰</span>
+            <span class = "label">RNGesus Simulator</span>
+        </div>
+        <div class= "feature-box" id = "dungeon-chest-comparator">
+            <span class = "icon">🔑</span>
+            <span class = "label">Dungeon Comparator</span>
+        </div>
+        <div class= "feature-box" id = "player-search">
+            <span class = "icon">🔍</span>
+            <span class = "label">Player Search</span>
+        </div>
+        <div class = "feature box" id = "library">
+            <span class = "icon">📘</span>
+            <span class = "label">Library</span>
+        </div>
+    </div>
+
+    <div class="content" id="homeContent">
+        <div class = "page-header">
+            <h1>Library</h1>
+            <p class = "subtitle">A totally unnecessary deep dive into things you'll pretend to read.</p>
+        </div>
+
+        <div class = "disclaimer">
+            Everything in this section is technically accurate, occasionally insightful, and mostly
+            unnecessary. Enjoy!
+        </div>
+
+        <div class = "library">
+            <div class = "section-colours">
+                <p>
+                Home - purple just looks nice
+                Banking Interest - UT Austin
+                Minion Profit - Georgia Tech
+                Flip Profit - MIT
+                Skytasks - Shrek... do I have to explain this one.
+                RNGesus - UPenn
+                Dungeon Comparator - Yale
+                Player Search - Princeton
+                </p>
+            </div>
+
+            <div class = "section-about">
+                <p>
+                    This is the first real project that I have ever made. Initially, I struggled with
+                    project ideas. Everyone said to create a project to solve a "problem" or make
+                    a project that incorporated AI so you could fluff up your resume. However,
+                    I found that the most meaningful advice came in the fact to make something
+                    that was actually interesting. I was in a big Skyblock phase, so naturally I chose
+                    to make my app using Skyblock as the primary focus. Surprisingly, there is lots to do!
+
+                    Languages used: HTML, CSS, JS, Rust, (Tauri)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-fade-overlay"></div>
+<script src = "banking-interest-calculator.js"> </script>
+
+<script type="module">
+    import { initSidebar, setupSidebarNavigation } from './sidebar.js';
+
+    initSidebar();
+
+    setupSidebarNavigation({
+        "homePage": "homePage.html",
+        "banking-interest-calculator": "banking-interest-calculator.html",
+        "minion-profit-calculator": "minion-profit-calculator.html",
+        "flip-profit-calculator": "flip-profit-calculator.html",
+        "skytasks": "skytasks.html",
+        "rngesus-drop-simulator": "rngesus-drop-simulator.html",
+        "dungeon-chest-comparator": "dungeon-chest-comparator.html",
+        "player-search": "player-search.html",
+        "library": "library.html"
+    });
+</script>
+</body>
+
+</html>

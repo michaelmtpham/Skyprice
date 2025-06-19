@@ -1,7 +1,4 @@
-
-
 const HYPIXEL_BASEURL: &str = "https://api.hypixel.net/v2/resources/skyblock";
-
 
 #[tauri::command]
 pub async fn get_collections() -> Result<String, String> {
