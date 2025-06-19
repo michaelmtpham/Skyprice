@@ -64,3 +64,97 @@ body, html {
     font-size: 1.3rem;
     user-select: none;
 }
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+.page-header h1 {
+    font-size: 2rem;
+    color: #a020f0;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .subtitle {
+    font-size: 1rem;
+    color: #555;
+}
+
+#page-fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 9999;
+}
+
+#page-fade-overlay.active {
+    opacity: 0.85;
+    pointer-events: all;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 3rem;
+    background: linear-gradient(to bottom right, #fdf6ff, #fffafc);
+    overflow-y: auto;
+}
+
+.welcome-section, .get-started, .footer-note {
+    background: #f8f0ff;
+    border: 1px #e2ccfa;
+    border-left: 5px solid #a020f0;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 12px rgba(160, 32, 240, 0.1);
+    color: #4a215d;
+}
+
+.welcome-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #8022b7;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(160, 32, 240, 0.2);
+}
+
+.get-started h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #6b21a8;
+    font-weight: bold;
+    text-align: center;
+}
+
+.get-started ul {
+    padding-left: 1.2rem;
+    list-style: disc;
+    color: #442558;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.footer-note {
+    background-color: #fbe8ff;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #8b2da0;
+    border-color: #e29cf7;
+}
+
+.content > * {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyFrames fadeIn {
+    to {
+        opacity: 1;
+    }
+}

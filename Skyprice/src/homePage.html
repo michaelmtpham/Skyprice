@@ -9,8 +9,13 @@
 </head>
 
 <body>
+
 <div class="container">
   <div class="sidebar" id = "sidebar">
+    <div class= "feature-box" id= "homePage">
+      <span class = "icon">🏠</span>
+      <span class = "label">Home</span>
+    </div>
     <div class= "feature-box" id= "banking-interest-calculator">
       <span class = "icon">💴</span>
       <span class = "label">Banking Interest</span>
@@ -40,19 +45,38 @@
       <span class = "label">Player Search</span>
     </div>
   </div>
+
   <div class="content" id="homeContent">
-    <h2>Welcome to Skyprice!</h2>
-    <br>
-    <p>Your free all-in-one tool for anything related to Skyblock.</p>
-    <br>
-    <h3>Get Started:</h3>
-      <p>Click a feature on the left sidebar to explore all the options.</p>
-      <p>Use the price calculator to estimate profits instantly.</p>
-      <p>Check out craft-flips to get the most profitable daily flips.</p>
-    <br>
-    <p>Have fun and get skypricing!</p>
+    <div class = "page-header">
+      <h1>Welcome to Skyprice</h1>
+      <p class = "subtitle">A free all-in-one tool for Skyblock calculations and computations.</p>
+    </div>
+
+    <section class = "welcome-section">
+      <h2>Built for Skyblockers, by a Skyblocker</h2>
+      <p>
+        Skyblock is meant to be your free and fun companion for everything Skyblock-related.
+        From profit calculators and fun features to player searchers, we help you maximize
+        your gameplay a thousandfold.
+      </p>
+    </section>
+
+    <section class = "get-started">
+      <h3>Get Started</h3>
+      <ul>
+        <li>Explore features using the sidebar on the left.</li>
+        <li>Calculate your profits instantly with our price calculators.</li>
+        <li>Discover the best flips and crafting strategies daily.</li>
+      </ul>
+    </section>
+
+    <section class = "footer-note">
+      <p>Have fun and get skypricing!</p>
+    </section>
+
   </div>
 </div>
+
 <div id="page-fade-overlay"></div>
 <script src = "home.js"> </script>
 
@@ -62,6 +86,7 @@
   initSidebar();
 
   setupSidebarNavigation({
+    "homePage": "homePage.html",
     "banking-interest-calculator": "banking-interest-calculator.html",
     "minion-profit-calculator": "minion-profit-calculator.html",
     "flip-profit-calculator": "flip-profit-calculator.html",

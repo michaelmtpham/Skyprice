@@ -11,6 +11,10 @@
 <body>
 <div class="container">
     <div class="sidebar" id = "sidebar">
+        <div class= "feature-box" id= "homePage">
+            <span class = "icon">🏠</span>
+            <span class = "label">Home</span>
+        </div>
         <div class= "feature-box" id= "banking-interest-calculator">
             <span class = "icon">💴</span>
             <span class = "label">Banking Interest</span>
@@ -106,6 +110,7 @@
     initSidebar();
 
     setupSidebarNavigation({
+        "homePage": "homePage.html",
         "banking-interest-calculator": "banking-interest-calculator.html",
         "minion-profit-calculator": "minion-profit-calculator.html",
         "flip-profit-calculator": "flip-profit-calculator.html",
