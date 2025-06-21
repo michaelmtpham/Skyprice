@@ -82,9 +82,15 @@ body, html {
     margin-bottom: 0.5rem;
 }
 
-.page-header .subtitle {
+.page-header {
     font-size: 1rem;
     color: #555;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
 }
 
 .disclaimer {

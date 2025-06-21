@@ -74,9 +74,15 @@ body, html {
     margin-bottom: 0.5rem;
 }
 
-.page-header .subtitle {
+.page-header {
     font-size: 1rem;
-    color: #555;
+    color: #555555;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #555555;
+    font-style: italic;
 }
 
 #page-fade-overlay {
