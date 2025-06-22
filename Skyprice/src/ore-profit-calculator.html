@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="ore-profit-calculator.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ore Profit Calculator</title>
+</head>
+
+<body>
+<div class = "container">
+    <div class="sidebar" id = "sidebar">
+        <div class= "feature-box" id= "homePage">
+            <span class = "icon">🏠</span>
+            <span class = "label">Home</span>
+        </div>
+        <div class= "feature-box" id= "banking-interest-calculator">
+            <span class = "icon">💴</span>
+            <span class = "label">Banking Interest</span>
+        </div>
+        <div class= "feature-box" id= "minion-profit-calculator">
+            <span class = "icon">🐺</span>
+            <span class = "label">Minion Profit</span>
+        </div>
+        <div class= "feature-box" id= "flip-profit-calculator">
+            <span class = "icon">🤸</span>
+            <span class = "label">Flip Profit</span>
+        </div>
+        <div class= "feature-box" id= "skytasks">
+            <span class = "icon">📜</span>
+            <span class = "label">Skytasks</span>
+        </div>
+        <div class= "feature-box" id= "rngesus-drop-simulator">
+            <span class = "icon">🎰</span>
+            <span class = "label">RNGesus Simulator</span>
+        </div>
+        <div class= "feature-box" id = "dungeon-chest-comparator">
+            <span class = "icon">🔑</span>
+            <span class = "label">Dungeon Comparator</span>
+        </div>
+        <div class= "feature-box" id = "player-search">
+            <span class = "icon">🔍</span>
+            <span class = "label">Player Search</span>
+        </div>
+        <div class = "feature-box" id = "library">
+            <span class = "icon">📘</span>
+            <span class = "label">Library</span>
+        </div>
+    </div>
+
+    <div class = "content" id = "oreProfitContent">
+        <div class = "page-header">
+            <h1>Ore Prof Calculator</h1>
+            <p class = "subtitle">Because mindlessly clicking pixels should be lucrative.</p>
+        </div>
+
+        <div class = "disclaimer">
+            This calculator helps you evaluate your estimated profit when mining. Use this
+            so you can decide which ore is best for your goals, whether it be EXP, coins, or collections.
+        </div>
+
+        <div class = "ore-profit-calculator">
+            <div class = "section">
+                <label for = "ore-type">Select Ore Type:</label>
+                <select id = "ore-type">
+                    <option>Mithril</option>
+                    <option>Amber</option>
+                    <option>Topaz</option>
+                    <option>Sapphire</option>
+                    <option>Amethyst</option>
+                    <option>Jasper</option>
+                    <option>Ruby</option>
+                    <option>Jade</option>
+                    <option>Opal</option>
+                    <option>Aquamarine</option>
+                    <option>Citrine</option>
+                    <option>Onyx</option>
+                    <option>Peridot</option>
+                </select>
+            </div>
+
+            <div class = "section">
+                <label for = "mining-speed">Mining Speed:</label>
+                <input type = "number" id = "mining-speed" placeholder = "e.g. 1000">
+            </div>
+
+            <div class = "section">
+                <label for = "mining-fortune">Mining Fortune:</label>
+                <input type = "number" id = "mining-fortune" placeholder = "e.g. 500">
+            </div>
+
+            <div class = "section">
+                <label for = "minutes">Session Time (Minutes): </label>
+                <input type = "number" id = "minutes" placeholder = "e.g. 60">
+            </div>
+
+            <button id = "calculate">Calculate Profit</button>
+
+            <div class = "result">
+                <p><strong> </strong></p>
+                <p><strong> </strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
