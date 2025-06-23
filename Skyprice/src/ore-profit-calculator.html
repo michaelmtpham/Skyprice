@@ -26,6 +26,10 @@
             <span class = "icon">🤸</span>
             <span class = "label">Flip Profit</span>
         </div>
+        <div class = "feature-box" id = "ore-profit-calculator">
+            <span class = "icon">🪨</span>
+            <span class = "label">Ore Profit</span>
+        </div>
         <div class= "feature-box" id= "skytasks">
             <span class = "icon">📜</span>
             <span class = "label">Skytasks</span>
@@ -50,7 +54,7 @@
 
     <div class = "content" id = "oreProfitContent">
         <div class = "page-header">
-            <h1>Ore Prof Calculator</h1>
+            <h1>Ore Profit Calculator</h1>
             <p class = "subtitle">Because mindlessly clicking pixels should be lucrative.</p>
         </div>
 
@@ -62,21 +66,23 @@
         <div class = "ore-profit-calculator">
             <div class = "section">
                 <label for = "ore-type">Select Ore Type:</label>
-                <select id = "ore-type">
-                    <option>Mithril</option>
-                    <option>Amber</option>
-                    <option>Topaz</option>
-                    <option>Sapphire</option>
-                    <option>Amethyst</option>
-                    <option>Jasper</option>
-                    <option>Ruby</option>
-                    <option>Jade</option>
-                    <option>Opal</option>
-                    <option>Aquamarine</option>
-                    <option>Citrine</option>
-                    <option>Onyx</option>
-                    <option>Peridot</option>
-                </select>
+                <div class = "select-wrapper">
+                    <select id = "ore-type">
+                        <option>Mithril</option>
+                        <option>Amber</option>
+                        <option>Topaz</option>
+                        <option>Sapphire</option>
+                        <option>Amethyst</option>
+                        <option>Jasper</option>
+                        <option>Ruby</option>
+                        <option>Jade</option>
+                        <option>Opal</option>
+                        <option>Aquamarine</option>
+                        <option>Citrine</option>
+                        <option>Onyx</option>
+                        <option>Peridot</option>
+                    </select>
+                </div>
             </div>
 
             <div class = "section">
@@ -103,6 +109,27 @@
         </div>
     </div>
 </div>
+<div id="page-fade-overlay"></div>
+<script src = "ore-profit-calculator.js"> </script>
+
+<script type="module">
+    import { initSidebar, setupSidebarNavigation } from './sidebar.js';
+
+    initSidebar();
+
+    setupSidebarNavigation({
+        "homePage": "homePage.html",
+        "banking-interest-calculator": "banking-interest-calculator.html",
+        "minion-profit-calculator": "minion-profit-calculator.html",
+        "flip-profit-calculator": "flip-profit-calculator.html",
+        "ore-profit-calculator": "ore-profit-calculator.html",
+        "skytasks": "skytasks.html",
+        "rngesus-drop-simulator": "rngesus-drop-simulator.html",
+        "dungeon-chest-comparator": "dungeon-chest-comparator.html",
+        "player-search": "player-search.html",
+        "library": "library.html"
+    });
+</script>
 
 </body>
 </html>

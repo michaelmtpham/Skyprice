@@ -69,7 +69,7 @@ body, html {
 .content {
     flex-grow: 1;
     padding: 2rem;
-    background-color: #1e1e1e;
+    background-color: #191b1f;
     overflow-y: auto;
 }
 
@@ -79,7 +79,7 @@ body, html {
 
 .page-header h1 {
     font-size: 2rem;
-    color: #facc15;
+    color: #e0b56d;
     margin-bottom: 0.5rem;
 }
 
@@ -90,15 +90,15 @@ body, html {
 }
 
 .disclaimer {
-    background-color: #2e2e2e;
-    border: 1px solid #a78b48;
-    border-left: 5px solid #facc15;
-    color: #f1f1f1;
+    background-color: #25282e;
+    border: 1px solid #3c3f46;
+    border-left: 5px solid #e0b56b;
+    color: #e6e6e6;
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 2rem;
     font-size: 0.95rem;
-    box-shadow: 0 2px 8px rgba(250, 204, 21, 0.2);
+    box-shadow: 0 2px 8px rgba(224, 181, 109, 0.1);
 }
 
 .ore-profit-calculator {
@@ -106,8 +106,8 @@ body, html {
     margin: 0 auto;
     padding: 2rem;
     border-radius: 12px;
-    background-color: #2b2b2b;
-    border: 1px solid #3f3f3f;
+    background-color: #25282e;
+    border: 1px solid #3c3f46;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -118,24 +118,70 @@ body, html {
 .section label {
     font-size: 1rem;
     font-weight: 500;
-    color: #fbbf24;
+    color: #e0b56d;
     margin-bottom: 0.4rem;
     display: inline-block;
 }
 
-select, input {
+select {
+    width: 100%;
+    font-size: 1rem;
+    border: 2px solid #3c3f46;
+    border-radius: 8px;
+    background-color: #1f2126;
+    color: #e6e6e6;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+    cursor: pointer;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 0;
+    height: 0;
+    margin-top: -4px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #e0b56d;
+}
+
+input[type="number"] {
     width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
-    border: 2px solid #4a4a4a;
+    border: 2px solid #3c3f46;
     border-radius: 8px;
-    background-color: #1e1e1e;
-    color: #f1f1f1;
-    transition: border-color 0.2s ease;
+    background-color: #1f2126;
+    color: #e6e6e6;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+    cursor: text;
+}
+
+input[type="number"]:focus {
+    border-color: #e0b56d;
+    background-color: #25282e;
+    outline: none;
 }
 
 input:focus, select:focus {
-    border-color: #facc15;
+    border-color: #e0b56d;
+    background-color: #25282e;
     outline: none;
 }
 
@@ -144,8 +190,8 @@ input:focus, select:focus {
     padding: 1rem;
     font-size: 1.05rem;
     font-weight: 600;
-    background-color: #f59e0b;
-    color: #1e1e1e;
+    background-color: #e0b56d;
+    color: #1a1a1a;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -154,14 +200,14 @@ input:focus, select:focus {
 }
 
 #calculate:hover {
-    background-color: #fbbf24;
+    background-color: #f4cc85;
 }
 
 .result {
     margin-top: 2rem;
     text-align: center;
     font-size: 1.15rem;
-    color: #eab308;
+    color: #f4cc85;
 }
 
 .result p {
