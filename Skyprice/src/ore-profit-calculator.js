@@ -40,6 +40,42 @@ window.addEventListener("DOMContentLoaded", () => {
             "get_bazaar_price",
             {itemName: internalOreName});
 
+        const stats = calculateMiningProfit({
+            miningSpeed, miningFortune, minutes: time, oreType, quickBuyPrice
+        });
+
+
+        result.innerHTML = `
+        <p>Expected Drops per Block: ${stats.expectedDrops}</p>
+        <p>Units per Minute: ${stats.unitsPerMinute}</p>
+        <p>Profit per Minute: ${stats.profitPerMinute.toLocaleString()} coins</p>
+        <p>Profit per Hour: ${stats.profitPerHour.toLocaleString()} coins</p>
+        `;
 
     })
 })
+
+function calculateMiningProfit({
+    miningSpeed, miningFortune, minutes, oreType, quickBuyPrice})
+{
+const seconds = 60;
+const ticksPerSecond = 20;
+
+const blockHardness = oreType === "Mithril" ? 30000: 50000;
+
+const ticksPerBlock = Math.ceil(blockHardness / miningSpeed);
+const blocksPerMinute = Math.floor((ticksPerSecond * seconds) / ticksPerBlock);
+
+const expectedDrops = 1 + (miningFortune / 100);
+
+const unitsPerMinute = blocksPerMinute * expectedDrops;
+const totalProfit = unitsPerMinute * quickBuyPrice;
+const profitPerHour = totalProfit * (60 / minutes);
+
+return {
+    expectedDrops: expectedDrops.toFixed(2),
+    unitsPerMinute: Math.round(unitsPerMinute),
+    profitPerMinute: Math.round(totalProfit),
+    profitPerHour: Math.round(profitPerHour)
+}
+}
