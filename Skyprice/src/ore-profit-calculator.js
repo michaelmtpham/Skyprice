@@ -4,19 +4,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const oreNames = {
         "Mithril": "MITHRIL_ORE",
-        "Amber": "ROUGH_AMBER_GEMSTONE",
-        "Topaz": "ROUGH_TOPAZ_GEMSTONE",
-        "Sapphire": "ROUGH_SAPPHIRE_GEMSTONE",
-        "Amethyst": "ROUGH_AMETHYST_GEMSTONE",
-        "Jasper": "ROUGH_JASPER_GEMSTONE",
-        "Ruby": "ROUGH_RUBY_GEMSTONE",
-        "Opal": "ROUGH_OPAL_GEMSTONE",
-        "Aquamarine": "ROUGH_AQUAMARINE_GEMSTONE",
-        "Citrine": "ROUGH_ONYX_GEMSTONE",
-        "Peridot": "ROUGH_PERIDOT_GEMSTONE"
+        "Amber": "ROUGH_AMBER_GEM",
+        "Topaz": "ROUGH_TOPAZ_GEM",
+        "Sapphire": "ROUGH_SAPPHIRE_GEM",
+        "Amethyst": "ROUGH_AMETHYST_GEM",
+        "Jasper": "ROUGH_JASPER_GEM",
+        "Ruby": "ROUGH_RUBY_GEM",
+        "Opal": "ROUGH_OPAL_GEM",
+        "Aquamarine": "ROUGH_AQUAMARINE_GEM",
+        "Citrine": "ROUGH_ONYX_GEM",
+        "Peridot": "ROUGH_PERIDOT_GEM"
     }
 
-    calculateButton.addEventListener("click", () => {
+    calculateButton.addEventListener("click", async () => {
         const oreType = document.getElementById("ore-type").value;
         const miningSpeed = parseFloat(document.getElementById("mining-speed").value);
         const miningFortune = parseFloat(document.getElementById("mining-fortune").value);
@@ -34,6 +34,11 @@ window.addEventListener("DOMContentLoaded", () => {
             result.innerHTML = "<p><strong>Please enter a valid time!</strong></p>"
             return;
         }
+
+        const internalOreName = oreNames[oreType];
+        const [quickBuyPrice, quickSellPrice] = await window.__TAURI__.core.invoke(
+            "get_bazaar_price",
+            {itemName: internalOreName});
 
 
     })
