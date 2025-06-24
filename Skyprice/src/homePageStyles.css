@@ -110,6 +110,17 @@ body, html {
     overflow-y: auto;
 }
 
+.content::after {
+    content: '';
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent, #fffafc);
+}
+
 .welcome-section, .get-started, .footer-note {
     background: #f8f0ff;
     border: 1px #e2ccfa;
@@ -119,6 +130,12 @@ body, html {
     margin-bottom: 2rem;
     box-shadow: 0 6px 12px rgba(160, 32, 240, 0.1);
     color: #4a215d;
+}
+
+.welcome-section:hover, .get-started:hover, .footer-note:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(160, 32, 240, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .welcome-section h2 {
