@@ -136,3 +136,25 @@ img {
     opacity: 0.85;
     pointer-events: all;
 }
+
+#category-select {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #93c5fd;
+    border-radius: 8px;
+    background-color: #e0f2fe;
+    color: #1e3a8a;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+#category-select:focus {
+    outline: none;
+    border-color: #eb82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
