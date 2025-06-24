@@ -176,7 +176,7 @@ body, html {
     opacity: 0;
 }
 
-@keyFrames fadeIn {
+@keyframes fadeIn {
     to {
         opacity: 1;
     }
