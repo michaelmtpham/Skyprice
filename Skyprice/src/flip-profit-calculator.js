@@ -75,11 +75,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
         if (!isNaN(profitGoal)) {
-            if (profit >= profitGoal) {
+            if ((profit - taxes) >= profitGoal) {
                 resultParagraphs[3].textContent = `This meets your goal of a profit of ${profitGoal.toLocaleString()} coins!`;
             }
             else {
-                let remainingProfit = profitGoal - profit;
+                let remainingProfit = profitGoal - (profit - taxes);
                 resultParagraphs[3].textContent = `This is below your goal of a profit of ${profitGoal.toLocaleString()} coins.
                 You would need to earn ${remainingProfit.toLocaleString()} more coins to reach that goal.`;
             }
