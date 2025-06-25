@@ -84,7 +84,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
@@ -101,7 +101,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
@@ -122,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
@@ -147,7 +147,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
@@ -176,7 +176,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
@@ -209,7 +209,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
@@ -246,11 +246,18 @@ window.addEventListener("DOMContentLoaded", () => {
             const time = ((balanceGoal - balance) / interest) * 31;
             if (x) {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!
-            It will take ${time} real-life hours to achieve the balance of ${balanceGoal.toLocaleString()} coins.`;
+            It will take ${formatNumber(time)} real-life hours to achieve the balance of ${formatNumber(balanceGoal)} coins.`;
             } else {
                 result.innerHTML = `Every 31 real-life hours, you will earn ${interest.toLocaleString()} coins in interest!`;
             }
         }
     })
 })
+
+function formatNumber(num) {
+    return Number(num.toFixed(2)).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    })
+}
 
