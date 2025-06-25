@@ -70,7 +70,7 @@ const expectedDrops = 1 + (miningFortune / 100);
 
 const unitsPerMinute = blocksPerMinute * expectedDrops;
 const totalProfit = unitsPerMinute * quickBuyPrice;
-const profitPerHour = totalProfit * (60 / minutes);
+const profitPerHour = totalProfit * 60;
 
 return {
     expectedDrops: expectedDrops.toFixed(2),
